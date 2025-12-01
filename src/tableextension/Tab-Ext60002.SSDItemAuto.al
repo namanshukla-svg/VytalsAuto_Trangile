@@ -30,11 +30,14 @@ tableextension 60002 "SSD Item Auto" extends Item
         //         if("SSD Pallet Type" <> '') and ("SSD Item SubType" = "SSD Item SubType"::Bulk)then Error(ItemTypeErr);
         //     end;
         // }
-        field(60004; "SSD Consumption Station"; Enum "SSD Production Station")
-        {
-            Caption = 'Consumption Station';
-            DataClassification = CustomerContent;
-        }
+        // Atul::01122025
+        // field(60004; "SSD Consumption Station"; Enum "SSD Production Station")
+        // {
+        //     Caption = 'Consumption Station';
+        //     DataClassification = CustomerContent;
+        // }
+        // Atul::01122025
+
         field(60005; "SSD Packing"; Option)
         {
             OptionCaption = ' ,Pallet,Case,Master Carton,Inner Carton,Box,Roll,Steel Drum,PE Can,Bundles,Others,Plastic Drum';
@@ -42,10 +45,12 @@ tableextension 60002 "SSD Item Auto" extends Item
             DataClassification = CustomerContent;
             Caption = 'Packing';
         }
-        field(60006; "SSD Storage Type"; Enum "SSD Storage Type")
-        {
-            Caption = 'Storage Type';
-            DataClassification = CustomerContent;
-        }
+        // Atul::01122025
+        // field(60006; "SSD Storage Type"; Enum "SSD Storage Type")
+        // {
+        //     Caption = 'Storage Type';
+        //     DataClassification = CustomerContent;
+        // }
+        // Atul::01122025
     }
 }

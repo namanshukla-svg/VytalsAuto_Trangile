@@ -10,7 +10,7 @@ page 60100 "SSD Auto Item API"
     EntitySetName = 'anzoitems';
     PageType = API;
     SourceTable = Item;
-    SourceTableView = sorting(Type)order(ascending)where(Type=const(Inventory));
+    SourceTableView = sorting(Type) order(ascending) where(Type = const(Inventory));
     Editable = false;
     DataAccessIntent = ReadOnly;
     Extensible = false;
@@ -49,10 +49,12 @@ page 60100 "SSD Auto Item API"
                 {
                     Caption = 'Low Flash';
                 }
-                field(palletTypePreference; Rec."SSD Pallet Type")
-                {
-                    Caption = 'Pallet Type';
-                }
+                // Atul::01122025
+                // field(palletTypePreference; Rec."SSD Pallet Type")
+                // {
+                //     Caption = 'Pallet Type';
+                // }
+                // Atul::01122025
                 field(blocked; Rec.Blocked)
                 {
                     Caption = 'Blocked';
@@ -71,7 +73,7 @@ page 60100 "SSD Auto Item API"
                     //Multiplicity = ZeroOrOne;
                     EntityName = 'itemwhse';
                     EntitySetName = 'itemwarehouse';
-                    SubPageLink = "Item No."=field("No.");
+                    SubPageLink = "Item No." = field("No.");
                 }
             }
         }
