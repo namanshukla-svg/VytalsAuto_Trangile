@@ -32,7 +32,9 @@ pageextension 60002 "SSD Item Ledger Entry" extends "Item Ledger Entries"
                     SSDReservationManagement: Codeunit "SSD Reservation Management";
                 begin
                     CurrPage.SetSelectionFilter(Rec);
-                    if Rec.FindSet()then repeat SSDReservationManagement.SyncitemLedgerEntry2(Rec);
+                    if Rec.FindSet() then
+                        repeat
+                            SSDReservationManagement.SyncitemLedgerEntry2(Rec);
                         until Rec.Next() = 0;
                     Clear(Rec);
                     CurrPage.Update(false);
@@ -64,6 +66,31 @@ pageextension 60002 "SSD Item Ledger Entry" extends "Item Ledger Entries"
                 ToolTip = 'Executes the BARCODE LEBEL RECEIPT3x2-Post action.';
             }
         }
+        addfirst(processing)
+        {
+            action("Inward Label")
+            {
+                ApplicationArea = All;
+                Caption = 'Inward Label';
+                Image = PrintReport;
+                // Visible = false;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+
+                trigger OnAction()
+                var
+                    // ItemLedgerEntry: Record "Item Ledger Entry";
+                    ItemledgerEntry: Record "Item Ledger Entry";
+                begin
+                    ItemledgerEntry.Reset();
+                    ItemledgerEntry.SetRange("Document No.", Rec."Document No.");
+                    if ItemledgerEntry.FindFirst() then
+                        Report.RunModal(Report::"Inward Label", true, false, ItemledgerEntry)
+                end;
+            }
+        }
+
     }
     procedure GetFilter(var ItemLedgerEntry: Record "Item Ledger Entry")
     begin

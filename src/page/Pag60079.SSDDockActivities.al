@@ -13,16 +13,16 @@ page 60079 "SSD Dock Activities"
             {
                 Caption = 'Docks';
 
-                field("Dock Actions"; Rec."Dock Actions")
-                {
-                    DrillDownPageId = "SSD Dock Actions";
-                    ToolTip = 'Specifies the value of the Docks field.', Comment = '%';
-                }
-                field("Dock Lines"; Rec."Dock Lines")
-                {
-                    ToolTip = 'Specifies the value of the Dock Lines field.', Comment = '%';
-                    DrillDownPageId = "SSD Dock Lines";
-                }
+                // field("Dock Actions"; Rec."Dock Actions")
+                // {
+                //     DrillDownPageId = "SSD Dock Actions";
+                //     ToolTip = 'Specifies the value of the Docks field.', Comment = '%';
+                // }
+                // field("Dock Lines"; Rec."Dock Lines")
+                // {
+                //     ToolTip = 'Specifies the value of the Dock Lines field.', Comment = '%';
+                //     DrillDownPageId = "SSD Dock Lines";
+                // }
             }
             cuegroup(Enablers)
             {

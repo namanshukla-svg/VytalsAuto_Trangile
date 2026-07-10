@@ -71,8 +71,9 @@ codeunit 60008 "SSD Auttomation Subscribers"
         CombinedShipmentErr: Label 'Shipment is combined with other shipments. Remove link before reopening';
         ShipmentSyncErr: Label 'Shipment is already synced for Pick Wave. You cannot reopen';
     begin
-        WarehouseShipmentHeader2.SetRange("SSD Combined With", WarehouseShipmentHeader."No.");
-        if not WarehouseShipmentHeader2.IsEmpty then Error(CombinedShipmentErr);
+        // WarehouseShipmentHeader2.SetRange("SSD Combined With", WarehouseShipmentHeader."No.");
+        // if not WarehouseShipmentHeader2.IsEmpty then
+        //     Error(CombinedShipmentErr);
         WarehouseShipmentLine.Reset();
         WarehouseShipmentLine.SetRange("No.", WarehouseShipmentHeader."No.");
         WarehouseShipmentLine.SetRange("Pick Planned", true);

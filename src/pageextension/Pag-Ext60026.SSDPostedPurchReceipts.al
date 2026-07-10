@@ -25,6 +25,30 @@ pageextension 60026 "SSD Posted Purch Receipts" extends "Posted Purchase Receipt
             actionref(Print_Promoted; Print)
             {
             }
+            actionref(Inward_Label_Promoted; "Inward Label")
+            {
+            }
         }
+        addafter(Print)
+        {
+            action("Inward Label")
+            {
+                ApplicationArea = All;
+                Caption = 'Inward Label';
+                Image = PrintReport;
+
+                trigger OnAction()
+                var
+                    // ItemLedgerEntry: Record "Item Ledger Entry";
+                    ItemledgerEntry: Record "Item Ledger Entry";
+                begin
+                    ItemledgerEntry.Reset();
+                    ItemledgerEntry.SetRange("Document No.", Rec."No.");
+                    if ItemledgerEntry.FindFirst() then
+                        Report.RunModal(Report::"Inward Label", true, false, ItemledgerEntry)
+                end;
+            }
+        }
+
     }
 }

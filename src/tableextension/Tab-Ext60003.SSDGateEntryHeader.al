@@ -74,11 +74,11 @@ tableextension 60003 "SSD Gate Entry Header" extends "Gate Entry Header"
                 else
                     case "Entry Type" of "Entry Type"::Inward: begin
                         WarehouseReceiptHeader.Get("SSD Planning No.");
-                        "SSD Dock No.":=WarehouseReceiptHeader."SSD Dock No.";
-                        "SSD Time Slot No.":=WarehouseReceiptHeader."SSD Slot No.";
-                        "SSD Time Slot Starting Time":=WarehouseReceiptHeader."SSD Slot Starting Time";
-                        "SSD Time Slot Ending Time":=WarehouseReceiptHeader."SSD Slot Ending Time";
-                        "SSD Material Type":=WarehouseReceiptHeader."SSD Material Type";
+                        // "SSD Dock No.":=WarehouseReceiptHeader."SSD Dock No.";
+                        // "SSD Time Slot No.":=WarehouseReceiptHeader."SSD Slot No.";
+                        // "SSD Time Slot Starting Time":=WarehouseReceiptHeader."SSD Slot Starting Time";
+                        // "SSD Time Slot Ending Time":=WarehouseReceiptHeader."SSD Slot Ending Time";
+                        // "SSD Material Type":=WarehouseReceiptHeader."SSD Material Type";
                         InsertGateEntryLines(WarehouseReceiptHeader);
                     end;
                     //IG_DS   // "Entry Type"::Outward:

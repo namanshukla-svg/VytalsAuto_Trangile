@@ -36,10 +36,10 @@ pageextension 60008 "SSD Outward Gate Entry" extends "Outward Gate Entry"
                         WHShipHdr.SetRange(Status, WHShipHdr.Status::Released);
                         if Page.RunModal(Page::"Warehouse Ship List", WHShipHdr) = Action::LookupOK then begin
                             Rec."SSD Planning No.":=WHShipHdr."No.";
-                            Rec."SSD Dock No.":=WHShipHdr."SSD Dock No.";
-                            Rec."SSD Time Slot No.":=WHShipHdr."SSD Slot No.";
-                            rec."SSD Time Slot Starting Time":=WHShipHdr."SSD Slot Starting Time";
-                            rec."SSD Time Slot Ending Time":=WHShipHdr."SSD Slot Ending Time";
+                            // Rec."SSD Dock No.":=WHShipHdr."SSD Dock No.";
+                            // Rec."SSD Time Slot No.":=WHShipHdr."SSD Slot No.";
+                            // rec."SSD Time Slot Starting Time":=WHShipHdr."SSD Slot Starting Time";
+                            // rec."SSD Time Slot Ending Time":=WHShipHdr."SSD Slot Ending Time";
                             WHShipHdr2.Reset();
                             WHShipHdr2.SetRange(Merged, true);
                             if WHShipHdr2.FindSet()then repeat // SkipLineCheck := true;

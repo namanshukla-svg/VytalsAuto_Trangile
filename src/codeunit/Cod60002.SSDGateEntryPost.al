@@ -97,12 +97,13 @@ codeunit 60002 "SSD Gate Entry Post"
                 end;
                 end;
             until GateEntryLine.Next() = 0;
-        SSDDockManagment.UpdateDockInwardFromGatePosting(PostedGateEntryHeader);
+      //  SSDDockManagment.UpdateDockInwardFromGatePosting(PostedGateEntryHeader);
         Rec.Delete();
         GateEntryLine.DeleteAll();
         if GuiAllowed then Window.Close();
         Rec:=GateEntryHeader;
     end;
+    
     procedure ProcessInwardGateOut(QRText: Text)
     var
         PostedGateEntryHeader2: Record "Posted Gate Entry Header";
@@ -127,7 +128,7 @@ codeunit 60002 "SSD Gate Entry Post"
     PostedGateEntryLine: Record "Posted Gate Entry Line";
     PostingNoSeries: Record "Posting No. Series";
     GateEntryHandler: Codeunit "Gate Entry Handler";
-    SSDDockManagment: Codeunit "SSD Dock Management";
+   // SSDDockManagment: Codeunit "SSD Dock Management";
     ModifyHeader: Boolean;
     Window: Dialog;
     ImageInstream: InStream;

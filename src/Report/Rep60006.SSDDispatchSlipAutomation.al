@@ -4,7 +4,7 @@ report 60006 "SSD Dispatch Slip Automation"
     Caption = 'Dispatch Slip Automation';
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
-    RDLCLayout = './Layouts/SSD Dispatch Slip NewA.rdl';
+    RDLCLayout = './Layouts/SSD Dispatch Slip NewA.rdlc';
 
     dataset
     {
@@ -41,7 +41,7 @@ report 60006 "SSD Dispatch Slip Automation"
             column(DateCaptionLbl; DateCaptionLbl)
             {
             }
-            column(Work_Order__;'Work Order ')
+            column(Work_Order__; 'Base Document No.')
             {
             }
             column(UserID; USERID)
@@ -64,8 +64,8 @@ report 60006 "SSD Dispatch Slip Automation"
             // column(pacKTaype; pacKTaype) { }
             dataitem("Warehouse Shipment Line"; "Warehouse Shipment Line")
             {
-                DataItemTableView = sorting("No.")order(ascending);
-                DataItemLink = "No."=field("No.");
+                DataItemTableView = sorting("No.") order(ascending);
+                DataItemLink = "No." = field("No.");
                 DataItemLinkReference = WarehouseShipmentHeader;
 
                 column(Source_No_; "Source No.")
@@ -122,30 +122,32 @@ report 60006 "SSD Dispatch Slip Automation"
                 trigger OnAfterGetRecord()
                 var
                 begin
-                    PurchaseOrderNo:='';
+                    PurchaseOrderNo := '';
                     SalesHeader.Reset();
                     SalesHeader.SetRange("No.", "Source No.");
-                    if SalesHeader.FindFirst()then begin
-                        PurchaseOrderNo:=SalesHeader."External Document No.";
-                        CustomerName:=SalesHeader."Sell-to Customer Name";
+                    if SalesHeader.FindFirst() then begin
+                        PurchaseOrderNo := SalesHeader."External Document No.";
+                        CustomerName := SalesHeader."Sell-to Customer Name";
                     end;
                     item.reset();
                     item.SetRange("No.", "Warehouse Shipment Line"."Item No.");
-                    if item.FindFirst()then pacKTaype:=format(item."SSD Packing");
-                    ItemGrosswt:=item."Gross Weight";
+                    if item.FindFirst() then pacKTaype := format(item."SSD Packing");
+                    ItemGrosswt := item."Gross Weight";
                     // if SSDTempDISPPACK.FindSet() then SSDTempDISPPACK.DeleteAll();
                     // if SSDtemporaryDisppack.findset() then SSDtemporaryDisppack.deleteall();
                     ReservationEntry.Reset();
                     ReservationEntry.SetRange("Source ID", "Warehouse Shipment Line"."Source No.");
                     ReservationEntry.SetFilter("Lot No.", '<>%1', '');
-                    if ReservationEntry.FindSet()then repeat if not SSDtemporaryDisppack.Get(ReservationEntry."Source ID", ReservationEntry."Item No.", ReservationEntry."Lot No.", ReservationEntry."Package No.")then begin
+                    if ReservationEntry.FindSet() then
+                        repeat
+                            if not SSDtemporaryDisppack.Get(ReservationEntry."Source ID", ReservationEntry."Item No.", ReservationEntry."Lot No.", ReservationEntry."Package No.") then begin
                                 SSDtemporaryDisppack.Init();
-                                SSDtemporaryDisppack."No.":=ReservationEntry."Source ID";
-                                SSDtemporaryDisppack."Item No.":=ReservationEntry."Item No.";
-                                SSDtemporaryDisppack.Quantity:=ReservationEntry."Quantity (Base)";
-                                SSDtemporaryDisppack."Lot No":=ReservationEntry."Lot No.";
-                                SSDtemporaryDisppack."Package No":=ReservationEntry."Package No.";
-                                SSDtemporaryDisppack."Package Count":=1;
+                                SSDtemporaryDisppack."No." := ReservationEntry."Source ID";
+                                SSDtemporaryDisppack."Item No." := ReservationEntry."Item No.";
+                                SSDtemporaryDisppack.Quantity := ReservationEntry."Quantity (Base)";
+                                SSDtemporaryDisppack."Lot No" := ReservationEntry."Lot No.";
+                                SSDtemporaryDisppack."Package No" := ReservationEntry."Package No.";
+                                SSDtemporaryDisppack."Package Count" := 1;
                                 SSDtemporaryDisppack.Insert();
                             end;
                         // else begin
@@ -153,43 +155,44 @@ report 60006 "SSD Dispatch Slip Automation"
                         //     SSDtemporaryDisppack.Modify();
                         // end;
                         until ReservationEntry.Next() = 0;
-                // SSDtemporaryDisppack.Reset();
-                // SSDtemporaryDisppack.SetRange("No.", "Warehouse Shipment Line"."Source No.");
-                // if SSDtemporaryDisppack.findset() then begin
-                //     repeat
-                //         //   if not SSDTempDISPPACK.Get(SSDtemporaryDisppack."No.", SSDtemporaryDisppack."Item No.", SSDtemporaryDisppack.Quantity, SSDtemporaryDisppack."Lot No") then begin
-                //         if not SSDTempDISPPACK.Get(SSDtemporaryDisppack."No.", SSDtemporaryDisppack."Item No.", SSDtemporaryDisppack."Lot No", SSDtemporaryDisppack."Package No") then begin
-                //             SSDTempDISPPACK.Init();
-                //             SSDTempDISPPACK."No." := SSDtemporaryDisppack."No.";
-                //             SSDTempDISPPACK."Item No." := SSDtemporaryDisppack."Item No.";
-                //             SSDTempDISPPACK.Quantity := SSDtemporaryDisppack.Quantity;
-                //             SSDTempDISPPACK."Lot No" := SSDtemporaryDisppack."Lot No";
-                //             SSDTempDISPPACK."Package No" := SSDtemporaryDisppack."Package No";
-                //             SSDTempDISPPACK."Package Count" := 1;
-                //             SSDTempDISPPACK.Insert();
-                //         end
-                //         else begin
-                //             SSDTempDISPPACK."Package Count" := SSDTempDISPPACK."Package Count" + 1;
-                //             SSDTempDISPPACK.Modify();
-                //         end;
-                //     until SSDtemporaryDisppack.Next() = 0;
-                //     SSDTempDISPPACK.Reset();
-                //     if SSDTempDISPPACK.FindSet() then
-                //         repeat
-                //             CRLF := TypeHelper.CRLFSeparator();
-                //         until SSDTempDISPPACK.Next() = 0;
-                // end;
+                    // SSDtemporaryDisppack.Reset();
+                    // SSDtemporaryDisppack.SetRange("No.", "Warehouse Shipment Line"."Source No.");
+                    // if SSDtemporaryDisppack.findset() then begin
+                    //     repeat
+                    //         //   if not SSDTempDISPPACK.Get(SSDtemporaryDisppack."No.", SSDtemporaryDisppack."Item No.", SSDtemporaryDisppack.Quantity, SSDtemporaryDisppack."Lot No") then begin
+                    //         if not SSDTempDISPPACK.Get(SSDtemporaryDisppack."No.", SSDtemporaryDisppack."Item No.", SSDtemporaryDisppack."Lot No", SSDtemporaryDisppack."Package No") then begin
+                    //             SSDTempDISPPACK.Init();
+                    //             SSDTempDISPPACK."No." := SSDtemporaryDisppack."No.";
+                    //             SSDTempDISPPACK."Item No." := SSDtemporaryDisppack."Item No.";
+                    //             SSDTempDISPPACK.Quantity := SSDtemporaryDisppack.Quantity;
+                    //             SSDTempDISPPACK."Lot No" := SSDtemporaryDisppack."Lot No";
+                    //             SSDTempDISPPACK."Package No" := SSDtemporaryDisppack."Package No";
+                    //             SSDTempDISPPACK."Package Count" := 1;
+                    //             SSDTempDISPPACK.Insert();
+                    //         end
+                    //         else begin
+                    //             SSDTempDISPPACK."Package Count" := SSDTempDISPPACK."Package Count" + 1;
+                    //             SSDTempDISPPACK.Modify();
+                    //         end;
+                    //     until SSDtemporaryDisppack.Next() = 0;
+                    //     SSDTempDISPPACK.Reset();
+                    //     if SSDTempDISPPACK.FindSet() then
+                    //         repeat
+                    //             CRLF := TypeHelper.CRLFSeparator();
+                    //         until SSDTempDISPPACK.Next() = 0;
+                    // end;
                 end;
-            // end;
+                // end;
             }
             trigger OnPreDataItem()
             var
             begin
-                if not StateRec.Get(CompanyInfo."State Code")then StateRec.Init();
-                ResName:=CompanyInfo.Name;
-                ResAdd:=CopyStr(CompanyInfo.Address + ', ' + CompanyInfo."Address 2" + ', ' + CompanyInfo.City + '-' + CompanyInfo."Post Code" + ', ' + StateRec.Description + ', India', 1, 250);
-                ResAdd:=UpperCase(ResAdd);
+                if not StateRec.Get(CompanyInfo."State Code") then StateRec.Init();
+                ResName := CompanyInfo.Name;
+                ResAdd := CopyStr(CompanyInfo.Address + ', ' + CompanyInfo."Address 2" + ', ' + CompanyInfo.City + '-' + CompanyInfo."Post Code" + ', ' + StateRec.Description + ', India', 1, 250);
+                ResAdd := UpperCase(ResAdd);
             end;
+
             trigger OnAfterGetRecord()
             var
             begin
@@ -235,25 +238,26 @@ report 60006 "SSD Dispatch Slip Automation"
             trigger OnPreDataItem()
             var
             begin
-                Srno:=0;
-                ItemGrosswt:=0;
-                Quantity2:=0;
-            // J := 0;
-            // packcounter := 0;
-            // NoofPack := 0;
+                Srno := 0;
+                ItemGrosswt := 0;
+                Quantity2 := 0;
+                // J := 0;
+                // packcounter := 0;
+                // NoofPack := 0;
             end;
+
             trigger OnAfterGetRecord()
             var
             begin
-                Srno:=Srno + 1;
-                Quantity2:="SSD Temp Dispatch Slip".Quantity * "SSD Temp Dispatch Slip"."Package Count";
+                Srno := Srno + 1;
+                Quantity2 := "SSD Temp Dispatch Slip".Quantity * "SSD Temp Dispatch Slip"."Package Count";
                 //GrWT:=;
                 item.reset();
                 item.SetRange("No.", "Item No.");
-                if item.FindFirst()then pacKTaype:=format(item."SSD Packing");
-                ItemGrosswt:=item."Gross Weight";
-                Desc:=item.Description + ' ' + item."Description 2";
-                Unit_of_Measure_Code:=item."Base Unit of Measure";
+                if item.FindFirst() then pacKTaype := format(item."SSD Packing");
+                ItemGrosswt := item."Gross Weight";
+                Desc := item.Description + ' ' + item."Description 2";
+                Unit_of_Measure_Code := item."Base Unit of Measure";
             end;
         }
     }
@@ -281,54 +285,56 @@ report 60006 "SSD Dispatch Slip Automation"
     begin
         CompanyInfo.Get();
         CompanyInfo.CalcFields(Picture);
-        if DisppatchTempSlip.FindSet()then DisppatchTempSlip.DeleteAll();
+        if DisppatchTempSlip.FindSet() then DisppatchTempSlip.DeleteAll();
     end;
-    var CompanyInfo: Record "Company Information";
-    item: Record Item;
-    ReservationEntry: Record "Reservation Entry";
-    SalesHeader: Record "Sales Header";
-    SSDtemporaryDisppack: Record "SSD Temp Dispatch Pack";
-    // SSDTempDISPPACK: Record "SSD Temp Dispatch Slip";
-    // SSDTempDISPPACK1: Record "SSD Temp Dispatch Slip";
-    StateRec: Record State;
-    // warhouseShipmentHeader: Record "Warehouse Shipment Header";
-    TypeHelper: Codeunit "Type Helper";
-    // ITEMNO: Code[20];
-    // SalesLine: Record "Sales Line";
-    PurchaseOrderNo: Code[40];
-    // "Lot/Batch No.": Code[50];
-    ItemGrosswt: Decimal;
-    // GrWT: Decimal;
-    Quantity2: Decimal;
-    // qtyperpac: Decimal;
-    // J: Integer;
-    // NoofPack: integer;
-    Srno: Integer;
-    Auth__SignatoryCaptionLbl: label 'Auth. Signatory';
-    Batch_No_CaptionLbl: label 'Batch No';
-    CurrReport_PAGENOCaptionLbl: label 'Page';
-    CustomerCaptionLbl: label 'Customer';
-    DateCaptionLbl: label 'Date';
-    Dispatch_Slip_No_CaptionLbl: label 'Dispatch Slip No.';
-    FM_ST_03__Rev__00_Effective_date_13_01_2012_CaptionLbl: label '<FM-ST-03, Rev. 00 Effective date 13.01.2012>';
-    G__Wt__KG_CaptionLbl: label 'G. Wt (KG)';
-    Notes___RemarksCaptionLbl: label 'Notes / Remarks';
-    P_O_No_CaptionLbl: label 'P.O.No:';
-    PackagetypeCaptionLbl: label 'Package Type';
-    Packing_ListCaptionLbl: label 'Packing List';
-    Prepared_byCaptionLbl: label 'Prepared by';
-    Product_CodeCaptionLbl: label 'Product Code';
-    Product_DescriptionCaptionLbl: label 'Product Description';
-    QtyPerpackLbl: Label 'Qty Per Pack';
-    QuantityCaptionLbl: label 'Quantity';
-    S_No_CaptionLbl: label 'S.No.';
-    Sales_Line___UOM_CodeCaptionLbl: label 'UOM/Qty';
-    Sales_No__of_Packs_CaptionLbl: label 'No of Pack''s';
-    pacKTaype: text;
-    CRLF: Text[2];
-    CustomerName: Text[100];
-    Desc: Text[250];
-    ResAdd: Text[250];
-    ResName: Text[250];
-    Unit_of_Measure_Code: Text[250];
+
+    var
+        CompanyInfo: Record "Company Information";
+        item: Record Item;
+        ReservationEntry: Record "Reservation Entry";
+        SalesHeader: Record "Sales Header";
+        SSDtemporaryDisppack: Record "SSD Temp Dispatch Pack";
+        // SSDTempDISPPACK: Record "SSD Temp Dispatch Slip";
+        // SSDTempDISPPACK1: Record "SSD Temp Dispatch Slip";
+        StateRec: Record State;
+        // warhouseShipmentHeader: Record "Warehouse Shipment Header";
+        TypeHelper: Codeunit "Type Helper";
+        // ITEMNO: Code[20];
+        // SalesLine: Record "Sales Line";
+        PurchaseOrderNo: Code[40];
+        // "Lot/Batch No.": Code[50];
+        ItemGrosswt: Decimal;
+        // GrWT: Decimal;
+        Quantity2: Decimal;
+        // qtyperpac: Decimal;
+        // J: Integer;
+        // NoofPack: integer;
+        Srno: Integer;
+        Auth__SignatoryCaptionLbl: label 'Auth. Signatory';
+        Batch_No_CaptionLbl: label 'Batch No./Lot No.';
+        CurrReport_PAGENOCaptionLbl: label 'Page';
+        CustomerCaptionLbl: label 'Customer';
+        DateCaptionLbl: label 'Date';
+        Dispatch_Slip_No_CaptionLbl: label 'Dispatch Slip No.';
+        FM_ST_03__Rev__00_Effective_date_13_01_2012_CaptionLbl: label 'VYT-SOP-STR-003-F01 Effective Date 01-04-2026';
+        G__Wt__KG_CaptionLbl: label 'G. Wt (KG)';
+        Notes___RemarksCaptionLbl: label 'Notes / Remarks';
+        P_O_No_CaptionLbl: label 'P.O.No:';
+        PackagetypeCaptionLbl: label 'Package Type';
+        Packing_ListCaptionLbl: label 'Packing List';
+        Prepared_byCaptionLbl: label 'Prepared by';
+        Product_CodeCaptionLbl: label 'Product Code';
+        Product_DescriptionCaptionLbl: label 'Product Description';
+        QtyPerpackLbl: Label 'Qty Per Pack';
+        QuantityCaptionLbl: label 'Quantity';
+        S_No_CaptionLbl: label 'S.No.';
+        Sales_Line___UOM_CodeCaptionLbl: label 'UOM/Qty';
+        Sales_No__of_Packs_CaptionLbl: label 'No of Pack''s';
+        pacKTaype: text;
+        CRLF: Text[2];
+        CustomerName: Text[100];
+        Desc: Text[250];
+        ResAdd: Text[250];
+        ResName: Text[250];
+        Unit_of_Measure_Code: Text[250];
 }

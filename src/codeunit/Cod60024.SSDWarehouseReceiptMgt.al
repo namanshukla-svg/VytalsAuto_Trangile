@@ -51,7 +51,7 @@ codeunit 60024 "SSD Warehouse Receipt Mgt."
         JSonObject.Add('unitofMeasureCode', Item."Base Unit of Measure");
         JSonObject.Add('packageId', ReservationEntry."Package No.");
         JSonObject.Add('lotnumber', ReservationEntry."Lot No.");
-        JSonObject.Add('docknumber', WarehouseReceiptHeader."SSD Dock No.");
+      //  JSonObject.Add('docknumber', WarehouseReceiptHeader."SSD Dock No.");
         JSonObject.Add('grossWeight', ReservationEntry."SSD Gross Weight");
         JSonObject.Add('expiryDate', ReservationEntry."Expiration Date");
         // JSonObject.Add('palletTypePreference', Item."SSD Pallet Type");//ANI::011225

@@ -17,8 +17,8 @@ codeunit 60003 "SSD Reservation Management"
     [EventSubscriber(ObjectType::Page, Page::"Item Tracking Lines", 'OnAfterEntriesAreIdentical', '', false, false)]
     local procedure SSDOnAfterEntriesAreIdentical(ReservEntry1: Record "Reservation Entry"; ReservEntry2: Record "Reservation Entry"; var IdenticalArray: array[2] of Boolean)
     begin
-        IdenticalArray[2] := (ReservEntry1."SSD Gross Weight" = ReservEntry2."SSD Gross Weight") and (ReservEntry1."SSD Entry Synced" = ReservEntry2."SSD Entry Synced") and (ReservEntry1."SSD Quality Required" = ReservEntry2."SSD Quality Required") and (ReservEntry1."SSD Vehicle Loaded" = ReservEntry2."SSD Vehicle Loaded"); // and
-                                                                                                                                                                                                                                                                                                                                      // (ReservEntry1."From Package" = ReservEntry2."From Package") and (ReservEntry1."To Package" = ReservEntry2."To Package");
+        IdenticalArray[2] := (ReservEntry1."SSD Gross Weight" = ReservEntry2."SSD Gross Weight") and (ReservEntry1."SSD Entry Synced" = ReservEntry2."SSD Entry Synced") and (ReservEntry1."SSD Quality Required" = ReservEntry2."SSD Quality Required") and (ReservEntry1."SSD Vehicle Loaded" = ReservEntry2."SSD Vehicle Loaded") and (ReservEntry1."Date of Manufacturing" = ReservEntry2."Date of Manufacturing") // and
+                                                                                                                                                                                                                                                                                                                                                                                                                       // (ReservEntry1."From Package" = ReservEntry2."From Package") and (ReservEntry1."To Package" = ReservEntry2."To Package");
     end;
 
     [EventSubscriber(ObjectType::Page, Page::"Item Tracking Lines", 'OnAfterCopyTrackingSpec', '', false, false)]
@@ -209,7 +209,7 @@ codeunit 60003 "SSD Reservation Management"
     // begin
     //     TempGlobalReservEntry.Quantity := ItemLedgerEntry.Quantity;
     // end;
-    [EventSubscriber(ObjectType::Page, Page::"Item Tracking Lines", 'OnInsertRecordOnBeforeTempItemTrackLineInsert', '', false, false)]
+    [EventSubscriber(ObjectType::Page, Page::"Item Tracking Lines", OnInsertRecordOnBeforeTempItemTrackLineInsert, '', false, false)]
     local procedure SSDOnInsertRecordOnBeforeTempItemTrackLineInsert(var TempTrackingSpecificationInsert: Record "Tracking Specification" temporary; var TempTrackingSpecification: Record "Tracking Specification" temporary)
     var
         ItemLedgerEntry: Record "Item Ledger Entry";

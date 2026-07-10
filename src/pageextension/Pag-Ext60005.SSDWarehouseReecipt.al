@@ -4,30 +4,58 @@ pageextension 60005 "SSD Warehouse Reecipt" extends "Warehouse Receipt"
     {
         addafter("Posting Date")
         {
-            field("SSD Material Type"; Rec."SSD Material Type")
+            // field("SSD Material Type"; Rec."SSD Material Type")
+            // {
+            //     ApplicationArea = All;
+            //     ToolTip = 'Specifies the value of the Material Type field.', Comment = '%';
+            // }
+            // field("SSD Dock No."; Rec."SSD Dock No.")
+            // {
+            //     ApplicationArea = All;
+            //     ToolTip = 'Specifies the value of the Dock No. field.', Comment = '%';
+            // }
+            // field("SSD Slot No."; Rec."SSD Slot No.")
+            // {
+            //     ApplicationArea = All;
+            //     ToolTip = 'Specifies the value of the Slot No. field.', Comment = '%';
+            // }
+            // field("SSD Slot Starting Time"; Rec."SSD Slot Starting Time")
+            // {
+            //     ApplicationArea = All;
+            //     ToolTip = 'Specifies the value of the Slot Starting Time field.', Comment = '%';
+            // }
+            // field("SSD Slot Ending Time"; Rec."SSD Slot Ending Time")
+            // {
+            //     ApplicationArea = All;
+            //     ToolTip = 'Specifies the value of the Slot Ending Time field.', Comment = '%';
+            // }
+            field("Gate Entry No."; Rec."Gate Entry No.")
+            {
+                ApplicationArea = All;
+            }
+            field("Gate Entry Date"; Rec."Gate Entry Date")
+            {
+                ApplicationArea = All;
+            }
+            field("Party name"; Rec."Party name")
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Material Type field.', Comment = '%';
             }
-            field("SSD Dock No."; Rec."SSD Dock No.")
+            field("Bill No."; Rec."Bill No.")
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Dock No. field.', Comment = '%';
             }
-            field("SSD Slot No."; Rec."SSD Slot No.")
+            field("Bill Amount"; Rec."Bill Amount")
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Slot No. field.', Comment = '%';
             }
-            field("SSD Slot Starting Time"; Rec."SSD Slot Starting Time")
+            field("Subcontracting"; Rec."Subcontracting")
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Slot Starting Time field.', Comment = '%';
-            }
-            field("SSD Slot Ending Time"; Rec."SSD Slot Ending Time")
-            {
-                ApplicationArea = All;
-                ToolTip = 'Specifies the value of the Slot Ending Time field.', Comment = '%';
             }
             field("SSD Status"; Rec."SSD Status")
             {
@@ -67,18 +95,18 @@ pageextension 60005 "SSD Warehouse Reecipt" extends "Warehouse Receipt"
         }
         addlast("F&unctions")
         {
-            action(Schedule)
-            {
-                ApplicationArea = All;
-                Caption = 'Schedule Receipt';
-                Image = PlannedOrder;
-                ToolTip = 'Executes the Schedule Receipt action.';
+            // action(Schedule)
+            // {
+            //     ApplicationArea = All;
+            //     Caption = 'Schedule Receipt';
+            //     Image = PlannedOrder;
+            //     ToolTip = 'Executes the Schedule Receipt action.';
 
-                trigger OnAction()
-                begin
-                    Rec.PlanWarehouseReceipt(Rec);
-                end;
-            }
+            //     trigger OnAction()
+            //     begin
+            //         Rec.PlanWarehouseReceipt(Rec);
+            //     end;
+            // }
             action(Reopen)
             {
                 ApplicationArea = All;
@@ -106,6 +134,69 @@ pageextension 60005 "SSD Warehouse Reecipt" extends "Warehouse Receipt"
                     Report.RunModal(Report::"SSD WR Lables", true, true, WarehouseReceiptHeader);
                 end;
             }
+            action("&PrintMRN")
+            {
+                ApplicationArea = All;
+                Caption = '&Print MRN';
+                Ellipsis = true;
+                Image = Print;
+
+                trigger OnAction()
+                begin
+                    Rec.SetRecfilter;
+                    Report.RunModal(Report::"Material Receipt Note", true, false, Rec);
+                    Rec.Reset;
+                end;
+            }
+            action("Print &Barcode Label")
+            {
+                ApplicationArea = All;
+                Caption = 'Print &Barcode Label';
+
+                trigger OnAction()
+                var
+                    ReservationEntry1: Record "Reservation Entry";
+                    BarcodeReceipt: Report "BARCODE LEBEL RECEIPT 4x3";
+                begin
+                    // <<<< ALLE[5.51]
+                    ReservationEntry1.Reset;
+                    ReservationEntry1.SetCurrentkey("MRN No.", "Item No.", "MRN Line No.", "Lot No.");
+                    ReservationEntry1.SetRange(ReservationEntry1."MRN No.", Rec."No.");
+                    if ReservationEntry1.FindFirst then begin
+                        BarcodeReceipt.SetTableview(ReservationEntry1);
+                        BarcodeReceipt.RunModal;
+                    end;
+                    // >>>> ALLE[5.51]
+                end;
+            }
+            action("Posted Gate Entry")
+            {
+                ApplicationArea = All;
+                Caption = 'Posted Gate Entry';
+
+                trigger OnAction()
+                var
+                    FrmPostedGateInList: Page "Posted Gate In List";
+                    PostedGateHeaderLocal: Record "SSD Posted Gate Header";
+                    WHReceiptLineLocal: Record "Warehouse Receipt Line";
+                begin
+                    //CF001 St
+                    Clear(FrmPostedGateInList);
+                    PostedGateHeaderLocal.Reset;
+                    WHReceiptLineLocal.Reset;
+                    WHReceiptLineLocal.SetRange("No.", Rec."No.");
+                    WHReceiptLineLocal.SetRange("Location Code", Rec."Location Code");
+                    if WHReceiptLineLocal.Find('-') then
+                        repeat
+                            PostedGateHeaderLocal.Get(WHReceiptLineLocal."Gate Entry no.");
+                            PostedGateHeaderLocal.Mark(true);
+                        until WHReceiptLineLocal.Next = 0;
+                    PostedGateHeaderLocal.MarkedOnly(true);
+                    FrmPostedGateInList.SetTableview(PostedGateHeaderLocal);
+                    FrmPostedGateInList.RunModal;
+                    //CF001 St
+                end;
+            }
             action(Sync)
             {
                 ApplicationArea = All;
@@ -123,9 +214,9 @@ pageextension 60005 "SSD Warehouse Reecipt" extends "Warehouse Receipt"
         }
         addlast(Category_Process)
         {
-            actionref(Schedule_Promoted; Schedule)
-            {
-            }
+            // actionref(Schedule_Promoted; Schedule)
+            // {
+            // }
             actionref(Reopen_Promoted; Reopen)
             {
             }
@@ -135,15 +226,28 @@ pageextension 60005 "SSD Warehouse Reecipt" extends "Warehouse Receipt"
             actionref(Print_Promoted; Print)
             {
             }
+            actionref(PrintMRN_Promoted; "&PrintMRN")
+            {
+            }
+            actionref("Print &Barcode Label_Promoted"; "Print &Barcode Label")
+            {
+            }
+        }
+        addafter("Posted &Whse. Receipts_Promoted")
+        {
+             actionref("Posted Gate Entry_Promoted"; "Posted Gate Entry")
+            {
+            }
         }
     }
-    procedure GetUserNameFromSecurityId(UserSecurityID: Guid): Code[50]var
+    procedure GetUserNameFromSecurityId(UserSecurityID: Guid): Code[50]
+    var
         User: Record User;
         NullGuid: Guid;
     begin
-        if UserSecurityID = NullGuid then exit('')
-        else
-        begin
+        if UserSecurityID = NullGuid then
+            exit('')
+        else begin
             User.Get(UserSecurityID);
             exit(User."User Name");
         end;

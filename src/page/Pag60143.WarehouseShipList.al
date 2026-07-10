@@ -36,26 +36,26 @@ page 60143 "Warehouse Ship List"
                     ApplicationArea = all;
                     Editable = false;
                 }
-                field("SSD Dock No."; Rec."SSD Dock No.")
-                {
-                    ApplicationArea = all;
-                    Editable = false;
-                }
-                field("SSD Slot No."; Rec."SSD Slot No.")
-                {
-                    ApplicationArea = all;
-                    Editable = false;
-                }
-                field("SSD Slot Starting Time"; Rec."SSD Slot Starting Time")
-                {
-                    ApplicationArea = all;
-                    Editable = false;
-                }
-                field("SSD Slot Ending Time"; Rec."SSD Slot Ending Time")
-                {
-                    ApplicationArea = all;
-                    Editable = false;
-                }
+                // field("SSD Dock No."; Rec."SSD Dock No.")
+                // {
+                //     ApplicationArea = all;
+                //     Editable = false;
+                // }
+                // field("SSD Slot No."; Rec."SSD Slot No.")
+                // {
+                //     ApplicationArea = all;
+                //     Editable = false;
+                // }
+                // field("SSD Slot Starting Time"; Rec."SSD Slot Starting Time")
+                // {
+                //     ApplicationArea = all;
+                //     Editable = false;
+                // }
+                // field("SSD Slot Ending Time"; Rec."SSD Slot Ending Time")
+                // {
+                //     ApplicationArea = all;
+                //     Editable = false;
+                // }
                 field("Assigned User ID"; Rec."Assigned User ID")
                 {
                     ApplicationArea = all;

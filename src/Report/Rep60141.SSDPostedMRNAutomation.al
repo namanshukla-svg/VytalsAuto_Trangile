@@ -14,7 +14,7 @@ Report 60141 "SSD Posted MRN Automation"
             DataItemTableView = sorting("No.");
             RequestFilterFields = "No.";
 
-            column(ReportForNavId_4701;4701)
+            column(ReportForNavId_4701; 4701)
             {
             }
             column(GateEntryDate; Format(GateEntryDate))
@@ -38,11 +38,19 @@ Report 60141 "SSD Posted MRN Automation"
             column(Item_Code___NameCaption; Item_Code___NameCaptionLbl)
             {
             }
+            //Atul 070102026
+            column(FooterAddress; StrSubstNo('%1 | %2 | %3 %4 | Phone %5', companyInfoRec."Registered Address", companyInfoRec."Registered Address 2", companyInfoRec."Registered City", companyInfoRec."Registered Post Code", companyInfoRec."Registered Phone No."))
+            {
+            }
+            column(FooterFaxEmailHomepage; StrSubstNo('E-mail %1 | %2', companyInfoRec."Registered E-Mail", companyInfoRec."Registered Home Page"))
+            {
+            }
+            //Atul 070102026
             dataitem("Integer"; "Integer")
             {
-                DataItemTableView = sorting(Number)where(Number=const(1));
+                DataItemTableView = sorting(Number) where(Number = const(1));
 
-                column(ReportForNavId_5444;5444)
+                column(ReportForNavId_5444; 5444)
                 {
                 }
                 // column(CurrReport_PAGENO; CurrReport.PageNo())
@@ -156,7 +164,7 @@ Report 60141 "SSD Posted MRN Automation"
                 column(Posted_Whse__Receipt_Header___Transporter_Copy_Received_; "Posted Whse. Receipt Header"."Transporter Copy Received")
                 {
                 }
-                column(SD_____FORMAT_UserSetup_Name_;'SD/- ' + Format(UserSetup.Name))
+                column(SD_____FORMAT_UserSetup_Name_; 'SD/- ' + Format(UserSetup.Name))
                 {
                 }
                 column(PostedQualityOrderHeader_Remarks; Remark1)
@@ -275,11 +283,11 @@ Report 60141 "SSD Posted MRN Automation"
                 }
                 dataitem("Posted Whse. Receipt Line"; "Posted Whse. Receipt Line")
                 {
-                    DataItemLink = "No."=field("No.");
+                    DataItemLink = "No." = field("No.");
                     DataItemLinkReference = "Posted Whse. Receipt Header";
                     DataItemTableView = sorting("No.", "Line No.");
 
-                    column(ReportForNavId_7072;7072)
+                    column(ReportForNavId_7072; 7072)
                     {
                     }
                     column(Source_No_; "Source No.")
@@ -335,9 +343,9 @@ Report 60141 "SSD Posted MRN Automation"
                     }
                     dataitem("Item Ledger Entry"; "Item Ledger Entry")
                     {
-                        DataItemLink = "Document No."=field("Posted Source No."), "Item No."=field("Item No."), "Document Line No."=field("Line No.");
+                        DataItemLink = "Document No." = field("Posted Source No."), "Item No." = field("Item No."), "Document Line No." = field("Line No.");
 
-                        column(ReportForNavId_1000000003;1000000003)
+                        column(ReportForNavId_1000000003; 1000000003)
                         {
                         }
                         column(Quantity_ItemLedgerEntry; "Item Ledger Entry".Quantity)
@@ -355,97 +363,100 @@ Report 60141 "SSD Posted MRN Automation"
                     // CustomerRec: Record Customer;
                     begin
                         GetLocation("Location Code");
-                        SrNo:=SrNo + 1;
-                        if ItemRec.Get("Item No.")then begin
+                        SrNo := SrNo + 1;
+                        if ItemRec.Get("Item No.") then begin
                             // PartNo := ItemRec."No. 2";
-                            description2:=ItemRec."Description 2";
-                            Grade1:=ItemRec.Grade;
+                            description2 := ItemRec."Description 2";
+                            Grade1 := ItemRec.Grade;
                         end;
                         PostedQualityOrderHeader.Reset();
-                        if PostedQualityOrderHeader.Get("Posted Whse. Receipt Line"."Posted Quality Order No.")then;
-                        if UserSetup.Get(PostedQualityOrderHeader."Posted By")then;
-                        if Remark1 = '' then Remark1:=PostedQualityOrderHeader.Remarks;
+                        if PostedQualityOrderHeader.Get("Posted Whse. Receipt Line"."Posted Quality Order No.") then;
+                        if UserSetup.Get(PostedQualityOrderHeader."Posted By") then;
+                        if Remark1 = '' then Remark1 := PostedQualityOrderHeader.Remarks;
                         if "Vendor Item Description" <> '' then begin
                             GeneralLedgerSetup.Reset();
                             GeneralLedgerSetup.Get();
-                            if GeneralLedgerSetup."SSD Activate Item Vendor" then VendItemDesc:="Item No." + '  ' + Description + '(' + "Vendor Item Description" + ')' end
+                            if GeneralLedgerSetup."SSD Activate Item Vendor" then VendItemDesc := "Item No." + '  ' + Description + '(' + "Vendor Item Description" + ')'
+                        end
                         else
-                            VendItemDesc:="Item No." + '  ' + Description;
+                            VendItemDesc := "Item No." + '  ' + Description;
                         //SSD
                         if "Posted Whse. Receipt Line"."Source Document" = "Posted Whse. Receipt Line"."Source Document"::"Purchase Order" then begin
-                            if PurchaseHdrN.Get(PurchaseHdrN."document type"::Order, "Posted Whse. Receipt Line"."Source No.")then if VendorRec.Get(PurchaseHdrN."Buy-from Vendor No.")then;
+                            if PurchaseHdrN.Get(PurchaseHdrN."document type"::Order, "Posted Whse. Receipt Line"."Source No.") then if VendorRec.Get(PurchaseHdrN."Buy-from Vendor No.") then;
                         end
-                        else if("Posted Whse. Receipt Line"."Source Document" = "Posted Whse. Receipt Line"."Source Document"::"Inbound Transfer")then begin
-                                if TransRcptHdr.Get("Posted Whse. Receipt Line"."Posted Source No.")then;
-                            end
-                            else if("Posted Whse. Receipt Line"."Source Document" = "Posted Whse. Receipt Line"."Source Document"::"Sales Return Order")then if ReturnReceiptHeader.Get("Posted Whse. Receipt Line"."Posted Source No.")then if Customer.get(ReturnReceiptHeader."Sell-to Customer No.")then;
-                    //SSD
+                        else if ("Posted Whse. Receipt Line"."Source Document" = "Posted Whse. Receipt Line"."Source Document"::"Inbound Transfer") then begin
+                            if TransRcptHdr.Get("Posted Whse. Receipt Line"."Posted Source No.") then;
+                        end
+                        else if ("Posted Whse. Receipt Line"."Source Document" = "Posted Whse. Receipt Line"."Source Document"::"Sales Return Order") then if ReturnReceiptHeader.Get("Posted Whse. Receipt Line"."Posted Source No.") then if Customer.get(ReturnReceiptHeader."Sell-to Customer No.") then;
+                        //SSD
                     end;
                 }
                 trigger OnAfterGetRecord()
                 begin
-                    SrNo:=0;
-                    if STATES1.Get(Vendor."State Code")then STATENAME:=STATES1.Description;
-                    if STATES.Get(Customer."State Code")then STATENAME:=STATES.Description;
-                    if PostedGateHeader.Get("Posted Whse. Receipt Header"."Gate Entry no.")then FormNo:=CopyStr(PostedGateHeader."ST38 No.", 1, 20);
-                    if not PostedGateHeader.Get("Posted Whse. Receipt Header"."Gate Entry no.")then PostedGateHeader.Init();
-                //PostedQualityOrderHeader.RESET;
-                //IF PostedQualityOrderHeader.GET("Posted Whse. Receipt Line"."Posted Quality Order No.") THEN;
-                //   IF UserSetup.GET(PostedQualityOrderHeader."Posted By")THEN;
+                    SrNo := 0;
+                    if STATES1.Get(Vendor."State Code") then STATENAME := STATES1.Description;
+                    if STATES.Get(Customer."State Code") then STATENAME := STATES.Description;
+                    if PostedGateHeader.Get("Posted Whse. Receipt Header"."Gate Entry no.") then FormNo := CopyStr(PostedGateHeader."ST38 No.", 1, 20);
+                    if not PostedGateHeader.Get("Posted Whse. Receipt Header"."Gate Entry no.") then PostedGateHeader.Init();
+                    //PostedQualityOrderHeader.RESET;
+                    //IF PostedQualityOrderHeader.GET("Posted Whse. Receipt Line"."Posted Quality Order No.") THEN;
+                    //   IF UserSetup.GET(PostedQualityOrderHeader."Posted By")THEN;
                 end;
             }
             trigger OnAfterGetRecord()
             begin
-                stateName1:='';
-                if Location.Get("Location Code")then if STATES1.Get(Location."State Code")then stateName1:=STATES1.Description
+                stateName1 := '';
+                if Location.Get("Location Code") then
+                    if STATES1.Get(Location."State Code") then
+                        stateName1 := STATES1.Description
                     else
-                        stateName1:='';
-                LocationName:=Location.Address + ',' + Location."Address 2" + ',' + Location.City + '-' + Location."Post Code" + ',' + stateName1 + 'TEL No. ' + Location."Phone No." + ' FAX No. ' + Location."Fax No.";
+                        stateName1 := '';
+                LocationName := Location.Address + ',' + Location."Address 2" + ',' + Location.City + '-' + Location."Post Code" + ',' + stateName1 + 'TEL No. ' + Location."Phone No." + '(Ref: FM-ST-01, Rev NO. 01, Effective date 13-01-2012)';
                 GetLocation("Location Code");
-                if PostedGateHdr.Get("Posted Whse. Receipt Header"."Gate Entry no.")then if PostedGateHdr."Ref. Document Type" in[PostedGateHdr."ref. document type"::"Purchase Order", PostedGateHdr."ref. document type"::"Purchase Schedule"]then if PurchaseHeader.Get(PurchaseHeader."document type"::Order, PostedGateHdr."Ref. Document No.")then;
+                if PostedGateHdr.Get("Posted Whse. Receipt Header"."Gate Entry no.") then if PostedGateHdr."Ref. Document Type" in [PostedGateHdr."ref. document type"::"Purchase Order", PostedGateHdr."ref. document type"::"Purchase Schedule"] then if PurchaseHeader.Get(PurchaseHeader."document type"::Order, PostedGateHdr."Ref. Document No.") then;
                 // if not Vendor.Get(PostedGateHdr."Party No.") then begin
                 //     Clear(Vendor);
                 //    PartyNameTxt := 'Customer Name and Address';
                 // end;
                 // if not Customer.Get(PostedGateHdr."Party No.") then begin
                 //     Clear(Customer);
-                PartyNameTxt:='Vendor Name and Address';
+                PartyNameTxt := 'Vendor Name and Address';
                 //end;
-                QCReportRecieved:='NO';
-                TrnsptCopyReport:='NO';
-                if "Posted Whse. Receipt Header"."QC Report Received" then QCReportRecieved:='YES';
-                if "Posted Whse. Receipt Header"."Transporter Copy Received" then TrnsptCopyReport:='YES';
+                QCReportRecieved := 'NO';
+                TrnsptCopyReport := 'NO';
+                if "Posted Whse. Receipt Header"."QC Report Received" then QCReportRecieved := 'YES';
+                if "Posted Whse. Receipt Header"."Transporter Copy Received" then TrnsptCopyReport := 'YES';
                 WhseCommentLine.Reset();
                 WhseCommentLine.SetRange("Table Name", WhseCommentLine."table name"::"Posted Whse. Receipt");
                 WhseCommentLine.SetRange(Type, WhseCommentLine.Type::" ");
                 WhseCommentLine.SetRange("No.", "No.");
-                if WhseCommentLine.Find('-')then RemarksTxt:=WhseCommentLine.Comment;
-                if WhseCommentLine.Next() <> 0 then RemarksTxt:=CopyStr(RemarksTxt + '\' + WhseCommentLine.Comment, 1, 1024);
-                if WhseCommentLine.Next() <> 0 then RemarksTxt:=CopyStr(RemarksTxt + '\' + WhseCommentLine.Comment, 1, 1024);
-                if WhseCommentLine.Next() <> 0 then RemarksTxt:=CopyStr(RemarksTxt + '\' + WhseCommentLine.Comment, 1, 1024);
+                if WhseCommentLine.Find('-') then RemarksTxt := WhseCommentLine.Comment;
+                if WhseCommentLine.Next() <> 0 then RemarksTxt := CopyStr(RemarksTxt + '\' + WhseCommentLine.Comment, 1, 1024);
+                if WhseCommentLine.Next() <> 0 then RemarksTxt := CopyStr(RemarksTxt + '\' + WhseCommentLine.Comment, 1, 1024);
+                if WhseCommentLine.Next() <> 0 then RemarksTxt := CopyStr(RemarksTxt + '\' + WhseCommentLine.Comment, 1, 1024);
                 PostedWhseRcptLine.Reset();
                 PostedWhseRcptLine.SetRange("No.", "Posted Whse. Receipt Header"."No.");
-                if not PostedWhseRcptLine.FindFirst()then PostedWhseRcptLine.Init();
+                if not PostedWhseRcptLine.FindFirst() then PostedWhseRcptLine.Init();
                 GeneralLedgerSetup.Reset();
                 GeneralLedgerSetup.Get();
                 if GeneralLedgerSetup."SSD Activate Item Vendor" then begin
                     PostedWhseReceiptLine.Reset();
                     PostedWhseReceiptLine.SetRange("No.", "No.");
                     PostedWhseReceiptLine.SetFilter("Vendor Item Description", '<>%1', '');
-                    if PostedWhseReceiptLine.FindFirst()then ITEMDESCRIPTIONCapt:='Item Code & Name (Vendor Item Description)';
+                    if PostedWhseReceiptLine.FindFirst() then ITEMDESCRIPTIONCapt := 'Item Code & Name (Vendor Item Description)';
                 end
                 else
-                    ITEMDESCRIPTIONCapt:='Item Code & Name';
+                    ITEMDESCRIPTIONCapt := 'Item Code & Name';
                 //SSD
                 Clear(GateEntryNo);
                 Clear(GateEntryDate);
                 PostedGateEntryHdr.Reset();
                 PostedGateEntryHdr.SetRange("SSD Planning No.", "Whse. Receipt No.");
-                if PostedGateEntryHdr.FindLast()then begin
-                    GateEntryNo:=PostedGateEntryHdr."No.";
-                    GateEntryDate:=PostedGateEntryHdr."Posting Date";
+                if PostedGateEntryHdr.FindLast() then begin
+                    GateEntryNo := PostedGateEntryHdr."No.";
+                    GateEntryDate := PostedGateEntryHdr."Posting Date";
                 end;
-            //SSD
+                //SSD
             end;
         }
     }
@@ -465,89 +476,93 @@ Report 60141 "SSD Posted MRN Automation"
     begin
         companyInfoRec.Get();
         companyInfoRec.CalcFields(Picture);
-    // RespCent.Get(UserMgt.GetRespCenterFilter);
+        // RespCent.Get(UserMgt.GetRespCenterFilter);
     end;
-    var companyInfoRec: Record "Company Information";
-    Customer: Record Customer;
-    GeneralLedgerSetup: Record "General Ledger Setup";
-    ItemRec: Record Item;
-    Location: Record Location;
-    PostedGateEntryHdr: Record "Posted Gate Entry Header";
-    PostedWhseRcptLine: Record "Posted Whse. Receipt Line";
-    PostedWhseReceiptLine: Record "Posted Whse. Receipt Line";
-    PurchaseHeader: Record "Purchase Header";
-    RespCent: Record "Responsibility Center";
-    ReturnReceiptHeader: Record "Return Receipt Header";
-    PostedGateHdr: Record "SSD Posted Gate Header";
-    PostedGateHeader: Record "SSD Posted Gate Header";
-    PostedQualityOrderHeader: Record "SSD Posted Quality Order Hdr";
-    STATES: Record State;
-    STATES1: Record State;
-    TransRcptHdr: Record "Transfer Receipt Header";
-    UserSetup: Record "User Setup";
-    Vendor: Record Vendor;
-    VendorRec: Record Vendor;
-    WhseCommentLine: Record "Warehouse Comment Line";
-    // UserMgt: Codeunit "SSD User Setup Management";
-    FormNo: Code[20];
-    GateEntryNo: Code[20];
-    // PartNo: Code[20];
-    // PONo: Code[20];
-    GateEntryDate: Date;
-    // PODate: Date;
-    // IVD: Integer;
-    SrNo: Integer;
-    A_C_DepartmentCaptionLbl: label 'A/C Department';
-    Accepted__Qty_CaptionLbl: label 'Accepted. Qty.';
-    APPROVED_BYCaptionLbl: label 'APPROVED BY';
-    AUTHORISED__CaptionLbl: label '( AUTHORISED )';
-    CHECKED_BYCaptionLbl: label 'CHECKED BY';
-    // CountLoop: label 'CountLoopLbl';
-    CurrReport_PAGENOCaptionLbl: label 'Page';
-    Date_CaptionLbl: label 'Date:';
-    DateCaptionLbl: label 'Date';
-    Delivery_Challan_No____DateCaptionLbl: label 'Delivery Challan No. & Date';
-    FM_ST_01__Rev_NO__01__Effective_date_13_01_2012_CaptionLbl: label '<FM-ST-01, Rev NO. 01, Effective date 13-01-2012>';
-    For_A_C_DepartmentCaptionLbl: label 'For A/C Department';
-    Gate_Entry_No____DateCaptionLbl: label 'Gate Entry No. & Date';
-    INSPECTED_BYCaptionLbl: label 'INSPECTED BY';
-    MRN_No____DateCaptionLbl: label 'MRN No. & Date';
-    P_O_No____DateCaptionLbl: label 'P.O No. & Date';
-    Party_Invoice_No____DateCaptionLbl: label 'Party Invoice No. & Date';
-    PI_No_CaptionLbl: label 'PI No.';
-    POSTED_MATERIAL__RECEIPT__NOTECaptionLbl: label 'POSTED MATERIAL  RECEIPT  NOTE';
-    Posted_Whse__Receipt_Header___QC_Report_Received_CaptionLbl: label 'QC Report Received';
-    Posted_Whse__Receipt_Header___Transporter_Copy_Received_CaptionLbl: label 'Transporter Copy Received';
-    Posted_Whse__Receipt_Line__Actual_Qty__to_Receive_CaptionLbl: label 'Actual Qty.';
-    Posted_Whse__Receipt_Line__Qty__On_Invoice_CaptionLbl: label 'Invoice Qty.';
-    PostedGateHeader__Transporter_Name_CaptionLbl: label 'Transporter Name';
-    Prepared_ByCaptionLbl: label 'Prepared By';
-    QC__CaptionLbl: label '( QC )';
-    Rejected__Qty_CaptionLbl: label 'Rejected. Qty.';
-    RemarksTxtCaptionLbl: label 'Remarks';
-    Road_Permit_No_CaptionLbl: label 'Road Permit No.';
-    Sr__No_CaptionLbl: label 'Sr. No.';
-    Store__Caption_Control1000000041Lbl: label '( Store )';
-    Store__CaptionLbl: label '( Store )';
-    Transporter_Bill_No____DateCaptionLbl: label 'Transporter Bill No. & Date';
-    UOMCaptionLbl: label 'UOM';
-    Whse__Rcpt__No____DateCaptionLbl: label 'Whse. Rcpt. No. & Date';
-    Item_Code___NameCaptionLbl: Text;
-    ITEMDESCRIPTIONCapt: Text;
-    LocationName: Text;
-    QCReportRecieved: Text;
-    Remark1: Text;
-    stateName1: Text;
-    TrnsptCopyReport: Text;
-    VendItemDesc: Text;
-    PartyNameTxt: Text[30];
-    description2: Text[50];
-    Grade1: Text[50];
-    STATENAME: Text[50];
-    RemarksTxt: Text[1024];
+
+    var
+        companyInfoRec: Record "Company Information";
+        Customer: Record Customer;
+        GeneralLedgerSetup: Record "General Ledger Setup";
+        ItemRec: Record Item;
+        Location: Record Location;
+        PostedGateEntryHdr: Record "Posted Gate Entry Header";
+        PostedWhseRcptLine: Record "Posted Whse. Receipt Line";
+        PostedWhseReceiptLine: Record "Posted Whse. Receipt Line";
+        PurchaseHeader: Record "Purchase Header";
+        RespCent: Record "Responsibility Center";
+        ReturnReceiptHeader: Record "Return Receipt Header";
+        PostedGateHdr: Record "SSD Posted Gate Header";
+        PostedGateHeader: Record "SSD Posted Gate Header";
+        PostedQualityOrderHeader: Record "SSD Posted Quality Order Hdr";
+        STATES: Record State;
+        STATES1: Record State;
+        TransRcptHdr: Record "Transfer Receipt Header";
+        UserSetup: Record "User Setup";
+        Vendor: Record Vendor;
+        VendorRec: Record Vendor;
+        WhseCommentLine: Record "Warehouse Comment Line";
+        // UserMgt: Codeunit "SSD User Setup Management";
+        FormNo: Code[20];
+        GateEntryNo: Code[20];
+        // PartNo: Code[20];
+        // PONo: Code[20];
+        GateEntryDate: Date;
+        // PODate: Date;
+        // IVD: Integer;
+        SrNo: Integer;
+        A_C_DepartmentCaptionLbl: label 'A/C Department';
+        Accepted__Qty_CaptionLbl: label 'Accepted. Qty.';
+        APPROVED_BYCaptionLbl: label 'APPROVED BY';
+        AUTHORISED__CaptionLbl: label '( AUTHORISED )';
+        CHECKED_BYCaptionLbl: label 'CHECKED BY';
+        // CountLoop: label 'CountLoopLbl';
+        CurrReport_PAGENOCaptionLbl: label 'Page';
+        Date_CaptionLbl: label 'Date:';
+        DateCaptionLbl: label 'Date';
+        Delivery_Challan_No____DateCaptionLbl: label 'Delivery Challan No. & Date';
+        FM_ST_01__Rev_NO__01__Effective_date_13_01_2012_CaptionLbl: label '<FM-ST-01, Rev NO. 01, Effective date 13-01-2012>';
+        For_A_C_DepartmentCaptionLbl: label 'For A/C Department';
+        Gate_Entry_No____DateCaptionLbl: label 'Gate Entry No. & Date';
+        INSPECTED_BYCaptionLbl: label 'INSPECTED BY';
+        MRN_No____DateCaptionLbl: label 'MRN No. & Date';
+        P_O_No____DateCaptionLbl: label 'P.O No. & Date';
+        Party_Invoice_No____DateCaptionLbl: label 'Party Invoice No. & Date';
+        PI_No_CaptionLbl: label 'PI No.';
+        POSTED_MATERIAL__RECEIPT__NOTECaptionLbl: label 'POSTED MATERIAL  RECEIPT  NOTE';
+        Posted_Whse__Receipt_Header___QC_Report_Received_CaptionLbl: label 'QC Report Received';
+        Posted_Whse__Receipt_Header___Transporter_Copy_Received_CaptionLbl: label 'Transporter Copy Received';
+        Posted_Whse__Receipt_Line__Actual_Qty__to_Receive_CaptionLbl: label 'Actual Qty.';
+        Posted_Whse__Receipt_Line__Qty__On_Invoice_CaptionLbl: label 'Invoice Qty.';
+        PostedGateHeader__Transporter_Name_CaptionLbl: label 'Transporter Name';
+        Prepared_ByCaptionLbl: label 'Prepared By';
+        QC__CaptionLbl: label '( QC )';
+        Rejected__Qty_CaptionLbl: label 'Rejected. Qty.';
+        RemarksTxtCaptionLbl: label 'Remarks';
+        Road_Permit_No_CaptionLbl: label 'Road Permit No.';
+        Sr__No_CaptionLbl: label 'Sr. No.';
+        Store__Caption_Control1000000041Lbl: label '( Store )';
+        Store__CaptionLbl: label '( Store )';
+        Transporter_Bill_No____DateCaptionLbl: label 'Transporter Bill No. & Date';
+        UOMCaptionLbl: label 'UOM';
+        Whse__Rcpt__No____DateCaptionLbl: label 'Whse. Rcpt. No. & Date';
+        Item_Code___NameCaptionLbl: Text;
+        ITEMDESCRIPTIONCapt: Text;
+        LocationName: Text;
+        QCReportRecieved: Text;
+        Remark1: Text;
+        stateName1: Text;
+        TrnsptCopyReport: Text;
+        VendItemDesc: Text;
+        PartyNameTxt: Text[30];
+        description2: Text[50];
+        Grade1: Text[50];
+        STATENAME: Text[50];
+        RemarksTxt: Text[1024];
+
     local procedure GetLocation(LocationCode: Code[10])
     begin
-        if LocationCode = '' then Location.Init()
+        if LocationCode = '' then
+            Location.Init()
         else if Location.Code <> LocationCode then Location.Get(LocationCode);
     end;
 }

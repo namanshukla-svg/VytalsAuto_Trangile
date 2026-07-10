@@ -1,0 +1,821 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>76cc3561-5102-40a0-a116-5967b9d70f8a</rd:ReportID>
+  <am:AuthoringMetadata>
+    <am:CreatedBy>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.1.30001.02</am:Version>
+    </am:CreatedBy>
+    <am:UpdatedBy>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.1.30001.02</am:Version>
+    </am:UpdatedBy>
+    <am:LastModifiedTimestamp>2026-06-02T10:51:57.6594238Z</am:LastModifiedTimestamp>
+  </am:AuthoringMetadata>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <rd:SecurityType>None</rd:SecurityType>
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:DataSourceID>3c6f6236-2ff3-4d0e-b097-389f085d9466</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="LabelList2">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>14.55325cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>8.18504cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Rectangle Name="LabelCanvas2">
+                          <ReportItems>
+                            <Rectangle Name="LabelBorder">
+                              <ReportItems>
+                                <Image Name="CompanyLogoImage">
+                                  <Source>Database</Source>
+                                  <Value>=System.Convert.ToBase64String(Fields!CompanyLogo.Value)</Value>
+                                  <MIMEType>image/bmp</MIMEType>
+                                  <Sizing>FitProportional</Sizing>
+                                  <Top>0.11425cm</Top>
+                                  <Left>11.24258cm</Left>
+                                  <Height>0.58697cm</Height>
+                                  <Width>2.78975cm</Width>
+                                  <Visibility>
+                                    <Hidden>=IsNothing(Fields!CompanyLogo.Value)</Hidden>
+                                  </Visibility>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                  </Style>
+                                </Image>
+                                <Textbox Name="ProductCode">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>MRN No.: </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!MRN_No_.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>0.8675cm</Top>
+                                  <Left>0.196cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>4.874cm</Width>
+                                  <ZIndex>1</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="ProductName">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Item Code: </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!ProductCode.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>1.508cm</Top>
+                                  <Left>0.1905cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>8.6cm</Width>
+                                  <ZIndex>2</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="BatchNo">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Item Name: </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!ProductName.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>2.18025cm</Top>
+                                  <Left>0.1905cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>11.7cm</Width>
+                                  <ZIndex>3</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="ContainerNo">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Vendor/Vytal's Batch No.: </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!BatchandVendorLotNo.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>2.789cm</Top>
+                                  <Left>0.1905cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>10.6cm</Width>
+                                  <ZIndex>4</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="QuantityAndUOM">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Pack ID:  </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!Serial_No_.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>3.39775cm</Top>
+                                  <Left>0.1905cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>10.9cm</Width>
+                                  <ZIndex>5</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="MfgDate">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Quantity &amp; UoM: </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!QuantityUOM.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>4.0065cm</Top>
+                                  <Left>0.1905cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>10.0865cm</Width>
+                                  <ZIndex>6</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="ExpiryDate">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Expiry Date: </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!ExpiryDate.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                            <Format>dd-MM-yyyy</Format>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>4.6415cm</Top>
+                                  <Left>5.6795cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>4.5975cm</Width>
+                                  <ZIndex>7</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="NetWeight">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Mfg.Date: </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!MfgDate.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                            <Format>dd-MM-yyyy</Format>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>4.647cm</Top>
+                                  <Left>0.1905cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>5.07cm</Width>
+                                  <ZIndex>8</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="GrossWeight">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Gross Wt.: </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!GrossWt.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>5.282cm</Top>
+                                  <Left>5.6795cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>4.5975cm</Width>
+                                  <ZIndex>9</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="ScanForDetails">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Scan for details</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>7pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style>
+                                        <TextAlign>Center</TextAlign>
+                                      </Style>
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>5.247cm</Top>
+                                  <Left>12.0865cm</Left>
+                                  <Height>0.25cm</Height>
+                                  <Width>1.8cm</Width>
+                                  <ZIndex>10</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="ManufacturedPackedBy">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Storage Condition: </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!StorageCondition.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>6.008cm</Top>
+                                  <Left>0.196cm</Left>
+                                  <Height>1.035cm</Height>
+                                  <Width>14.008cm</Width>
+                                  <ZIndex>11</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="CompanyAddress">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Allergen Warning: </Value>
+                                          <Style>
+                                            <FontStyle>Normal</FontStyle>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                            <FontWeight>Normal</FontWeight>
+                                            <TextDecoration>None</TextDecoration>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!AllergenWarning.Value</Value>
+                                          <Style>
+                                            <FontStyle>Normal</FontStyle>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                            <FontWeight>Normal</FontWeight>
+                                            <TextDecoration>None</TextDecoration>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>7.13825cm</Top>
+                                  <Left>0.196cm</Left>
+                                  <Height>1.04125cm</Height>
+                                  <Width>14.008cm</Width>
+                                  <ZIndex>12</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="NetWeight2">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Net Wt.: </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!NetWt.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>5.314cm</Top>
+                                  <Left>0.1905cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>5.07cm</Width>
+                                  <ZIndex>13</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="ProductCode2">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Receipt Date: </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!Posting_Date.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                            <Format>dd-MM-yyyy</Format>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>0.22225cm</Top>
+                                  <Left>5.502cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>5.00275cm</Width>
+                                  <ZIndex>14</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Image Name="Image2">
+                                  <Source>Embedded</Source>
+                                  <Value>green</Value>
+                                  <Sizing>Fit</Sizing>
+                                  <Top>1.5367cm</Top>
+                                  <Left>12.44812cm</Left>
+                                  <Height>0.90197cm</Height>
+                                  <Width>1.13363cm</Width>
+                                  <ZIndex>15</ZIndex>
+                                  <Visibility>
+                                    <Hidden>=iif(Fields!VegNonVegLogo.Value="Non-Veg" Or Fields!VegNonVegLogo.Value=" ",True,False)</Hidden>
+                                  </Visibility>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                  </Style>
+                                </Image>
+                                <Image Name="QRCodeImage">
+                                  <Source>Database</Source>
+                                  <Value>=System.Convert.FromBase64String(Fields!QRImage.Value)</Value>
+                                  <MIMEType>image/png</MIMEType>
+                                  <Sizing>FitProportional</Sizing>
+                                  <Top>2.75725cm</Top>
+                                  <Left>11.65372cm</Left>
+                                  <Height>2.44838cm</Height>
+                                  <Width>2.83628cm</Width>
+                                  <ZIndex>16</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                  </Style>
+                                </Image>
+                                <Textbox Name="ProductCode3">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Vendor No.: </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!VendorNo.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>11pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>0.20936cm</Top>
+                                  <Left>0.1905cm</Left>
+                                  <Height>0.5135cm</Height>
+                                  <Width>4.17203cm</Width>
+                                  <ZIndex>17</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Image Name="Image3">
+                                  <Source>Embedded</Source>
+                                  <Value>triangle</Value>
+                                  <Sizing>Fit</Sizing>
+                                  <Top>1.53975cm</Top>
+                                  <Left>12.44812cm</Left>
+                                  <Height>0.90197cm</Height>
+                                  <Width>1.13363cm</Width>
+                                  <ZIndex>18</ZIndex>
+                                  <Visibility>
+                                    <Hidden>=iif(Fields!VegNonVegLogo.Value="Veg" Or Fields!VegNonVegLogo.Value=" ",True,False)</Hidden>
+                                  </Visibility>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                  </Style>
+                                </Image>
+                              </ReportItems>
+                              <KeepTogether>true</KeepTogether>
+                              <Top>0.00554cm</Top>
+                              <Height>8.1795cm</Height>
+                              <Width>14.55325cm</Width>
+                              <Style>
+                                <Border />
+                              </Style>
+                            </Rectangle>
+                          </ReportItems>
+                          <Style />
+                        </Rectangle>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="LabelList_Details_Group2">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!Lot_No_.Value</GroupExpression>
+                      <GroupExpression>=Fields!Serial_No_.Value</GroupExpression>
+                    </GroupExpressions>
+                    <DataElementName>Detail</DataElementName>
+                  </Group>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                  <DataElementName>Detail_Collection</DataElementName>
+                  <DataElementOutput>Output</DataElementOutput>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet_Result</DataSetName>
+            <Height>8.18504cm</Height>
+            <Width>14.55325cm</Width>
+            <Style />
+          </Tablix>
+        </ReportItems>
+        <Height>8.18504cm</Height>
+        <Style />
+      </Body>
+      <Width>14.55325cm</Width>
+      <Page>
+        <PageHeight>10cm</PageHeight>
+        <PageWidth>15cm</PageWidth>
+        <InteractiveHeight>10cm</InteractiveHeight>
+        <InteractiveWidth>15cm</InteractiveWidth>
+        <LeftMargin>0.2cm</LeftMargin>
+        <RightMargin>0.2cm</RightMargin>
+        <TopMargin>0.2cm</TopMargin>
+        <ColumnSpacing>0.13cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <EmbeddedImages>
+    <EmbeddedImage Name="green">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAALMAAACjCAYAAADBwi9oAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAIdUAACHVAQSctJ0AABDXSURBVHhe7Z17VFXXncdvxphJnTyqa5adPtK1ZrWZrpkk7XSl0+nKmrQqIoLAvWC1amzGmLRZdTUmE5uktca4aifRNMaVTqdZqcPjwr08LghEBQ2CgiJBkSBPUakKgrx8AILy/s767XPOFc+9PCRwOfvc3zfr849JuPvs/fGw7z57/47FkhABhpGWxEhYXEthiV/ytMXjXzKMTJDMyUthcYREssyM3CRGwJIcCUu89cWRZXbaGMZ4JBBeZHZGbPQus9NKcxCGMR6OcE+Zk+jObNvuKbN9MZ4+uBGFbTUobGUYA9FWg9dL49S7tPVOmR3WP3vKHLsQkUe2g8MxYmL+ekgRWS+z0+b0InMgwvPfVv7PoSEMMYxBoPzpTBYsjrDbMguhSWbrXpaZkQbKH2v2eZfZYc1jmRlpoOys2QtLfKinzE5bCcvMSANlx+mPYYkPUZfpNJkjYHFEnGGZGWmg/KE6HZa4YC8yWxtZZkYaKNuq0zxlJhzWqywzIw2UtytTYbEHeT4JZJkZmaD8vjIFFvsiT5kTbNdYZkYaKL+rcMES603miOssMyMNlC3lSbDELNSLTHPoDpaZkQbK5vJEWGICPGVOjGCZGXmgbCpzepfZaetkmRlpGEPmLpaZkYZRZU6IYJkZeRhVZqetm2VmpGEMmW+xzIw0sMyMaRhV5gSWmZGIUWV2WntZZkYaxpC5j2WeBKD08+eK/mcynlBY5knGW7r7e9DR242OvrugtxudfTdH/Mug/1x/hzKizA7rAMs8CnT93kSrbq9HXlMZ8lsqkd9Shb+cy8a3s/4Lc1NXY27amvGz+1l8Jf15rCv+Cz65XCp+Vl5TOUqu/lX/kUo7RJM82+kvUFjmu8RbPqjZh/+uSMbW
+Che+kr5W1BexxIUo0Jk0OmQ5YZbc/lmxi/B3rhX45cld4vPerU5H081r+ub4pdgUlnkcDM+N/ltouXldnGoIPLgR83PeVI7qRM9XOpKOuov+0mqfeeytnQDDfo4zXIyD+LzYQDyR9TICc9/EqmPvo/J6HTpoajIs+msxK5SRZbYN+bXMYhoxLEdaq5DZUIwnsl7B7OSfKMfZSSo6pqM/c+YzbMpfJGpHXDAeTFqOb+z5BXady0ZO0ykMDA7evgAv12gmKCPK7PRTmfXz4A9q9uK5wp2KvCQu/erXFxoxBDalXdQ+Ety+CCuPbhftvyMmnYJQRpSZ8PgDk8uspfVWO3bW7MEP97+qzFWpgwwn7zhQ5+50HXQ9dF1a9NcuOxSWeZjEpdcu4MMzmXjItfL2NGLaphCTBLVfXIcVD7lW4MMzWTjd0aiOoXmk9nuZtfQM9OHDcwcwN+UZ5W5myGnE54SuxxEqxvAfd69B+qUi9/WbQWqK38pMGRgaRE5zGb67bz0sTppvhnh2ghmxL8YXkpfjqf2/wqHm8ttOe+knWfBLmbWUt9fjuWM7MTNpqVJrwWx34lGhyphhsMQEYpZrBXad3Y+znU3Sj6tfyazlUHMFvpqyWjmWTuu2+uv0J+jVCTEL8WjaWtEvWvR9Z3QofiMzpaq9HkvytmK2a5X4VSvuUPpr9FfsQZidtAypdYVSCu0XMmvrxgVtNfhy6k+Vije0Fssi66AX2YTgngQbXvssFhe6WtVxlkNq08usJaPhOOYkLVPvxl4ulLkNTTvsQXhi7zrsv/yZuw/1fWs0KKaVWUtU7UHMoi939FSM78bjx74YDyZEIqo2x92X+j42EhRTyqzlPVFJnd4Rx9OKCaG+X49er6BF39dGgWI6mbW8WZag7KVw72JjJgT1X1wwtlelu/tW3+dGgGIqmSl9gwNYf+IjZdlN/8ZOZmI4QnGP04rY84dZZl9A6ervweqC9+TdGGRk4oLxrYyf4Yy6
+r0Pf/9ONaWSmtPd2Y9Hh36kXI/nmIEMSKZ6UfmfvL1HdfslwQptCZi0bSu3q7jAWecqgd+rFLsIjGS+g9Op5QwltGplzm8uV0x9i1cLLhTCTS2wgvn/gdfeNRD8m04H0MlMyGk7gYbpjiHVkLxfBTD7OcNzvtOKdqt3KOHgZG18jtcyUwaFBBB/aAkv0Al5H9inarrsAfFSbbYi7s7Qy034BKpDys+N/5kfU04l9EQIObkSLehxLP06+RF6ZARS11fjhPmSDQdO7mIV4KvvXuN7bNa1CSykz5WpPJx7LXM9f+AwBlTtYjPT6Igx6GS9fIZ3M9JmUX5fGK6em+a5sDOJD8KW059zjox83XyCfzACym07hgeQVyiYYffuY6cFpxX3OcGwsc6pu+F5o6WSm0ljLC3Z4fwsnM73Yg/DNj1/ERdrUzzKPDiX90nHMiDdhGQCzED0P609GqXp4juFUIo3MFNoNt6Ekhu/KRsYRhq+nrBblfH0ttFQyn+u4jL91qsVM9O1iDEIkLFHz8HppHLoHej3GcSqRRuab/b14qXiXsoKhbxNjLJxWzEiIwKlrF3x6d5ZCZgq9EsH9CFXfJsZY0K7FuBAcaCzFEP3jZUynAmlkdtUdw/10utrfC7bIgiMMX8t4Add6bvjs7mx4mbU8lvmycp5P3x7GmDjCRNkvlnkYlK7+W3icZOYtnvLgtOFeRxieLfzAfUPSj+1kI4XM64o/wgyxM45PkEiFPQj/su8lllmDsqrgfXW/spcGMsYlLgTf3LMOdWqZL/3YTjaGlpkeiVIRcGv+O0p9OH1bGGPjtGGGPVgsqbLMAKJrc3Ev1b7gByVyEr0Ay4/+gWWm0Bkz8b47fTsYOYhZ6P4SqB/fycbwMr9PteJGahxjfOKX4OvpLyCvpWrKhTa8zFsqknhjkexEzxe/Yf1WZsrp9gY8umcdH42SnZgAbK9O82+ZsxpL1FUMXl+WmpgA8cJ6v5aZqrYrj7BZZqlh
+mYEDQmZ+8ic9MQGi6DvLzDLLjz0Ia4v+JB6ATaXQLDMz9cSH4ht7fjHlZXBZZmbqoSKLyctxrPU0y8wySw7V1EhahoLWapaZZZYclpllNg2OMDzkWoWitjMsM8ssOfEh+MEnb+BS9xWWmWWWnNhAvFFqV5zxV5mzGk+Kz2OZJScmADv8/aFJ8ZVzmJ3yDJcXkB1+nE215fpFET7l7uylcYwc+LvMBGVnzZ6RG8fIQfR8vO3P+5kJCu2DtcTwyWxpoTVmRxiianNYZvr1xGUGJMYehIDct8Q7aPxe5vOdLXhy/wauZiQrMQF8oFWDQp0xYgMZYxO9AJFHtrPMBGXpkXd5qiEjjjD8vWsVUuqOscwE5WhrNR5Je44PtsqGPQjfyXpVcYVlVhpI+ed967mkrWzEB2Nezib3GOrHdrKhSCHzKyVRmEEluqgqu75NjPFwhGNm0jLkNpWrrrDMAsrl7quYkbiUXwMhC44wfDFlNbr6bqmqeI7rZCONzNQpTx/cyDJLgU2U5XrjVJzYksAy66Acv3JW2RLKUw1jQ+NjX4yTV2t9JjIhlczl1y9iTupqMR/zaBdjHGIWYkNJFDr7bnqM41QijczE4NCQ2Bdr+b+nYUmM9GwsM/04rbg/PhR7G4p9elcmpJKZUtVej+9nvqKeQPHSYGZ6iVmIsPx30N7X7TF+U41UMhOU31em4j6eOxsPRyjuS4iA80K+z+/KhHwyDwG9g/34dtYroi0e7WOmCXorazBsR7bREPlkXVmPdDITlISLR3E/zZt5qc4YOELxgGslynz8vuzhSCsz5ansjVxV3xDYRB3tqNqDqhcs811BudjViicPbBAL9B7tZHxHnFIXo62nQ9XCc7x8gbwyqzfojy8dV7aH8qvVpgea5sUvwZGWqS29NR6klVmDFuZfPRmFGXEhXF/D1zjDMTM+BL8tT0B3f4/H2Pga6WWmXOu9gcdoi+hIF8FMPuoj67VF/6O4MM13ZUJ6mQlK
+bnM55qasEvM3jzYzk0/sInw5bS0u3GgxhMiEKWQmKEVtZ/FF1zO8d2MqoeXQ2EX4WvrzOHHlnGFEJkwlM+Xdqgz1vCDPn6eEuGA8vnfdlL/SYSKYRmaCQvPn1QU7lAviFY7JxRGKmU4rMi6dUMefZZ5SKH2DA1h/4iPlgQpPOSYHWoKLDcKm8kSxnUDf70bAdDITWjaXJSqHYPmR9+eD+s8ehC3lSe6+1fe5EaCYTmZCy/un9yhPCEWZAt4DfdeIvlsi+lGLvq+NAsWUMhNaqGjfLJo/ixJfLPT4oHXkIDycsNRd9FAZcs9+NgoU08pMaMloOI45Sct4U/94ENOKxfj3rFeR3XTK3Yf6vjUaFFPLTGj7OAraavAPqT8V16DMo/kufSeR4mU69yTYsK1qN5puXVfH2fgiE34hswal/HodFuZuxoPJK9S7NAstoMfTMQswO2kZdtd/qoyvBHfj4fiVzISWrMYSfDVltXia5ffr0fQlzxGG8Ny3cKi5wt1H+r4zOhS/kpnQUtZeh3/d9xLuFV8O/W1Ph3pKx74YD7tWIuniUfQMDkg/rn4nswaFThHT+wYf2b0Gluh5/rEmTVOKqHmYlfhjrCx4z33USRlSz36SBb+WmdBScb0Ov/ksFg/Tq9qoM0hqs53+1pYnneF4sXAnPm5QH0uLsZRbZILi1zJraCm+WosdVWl4IPknylxSrE1LLjU9MLIH4W+cVvzgk9eRdqnIfb1mkFiDwjIPQ0tt52W8dHIXvpXxc2UpT8ba0PQ9IHqBeDEo1UlOuJCPG/1KVU5l+DyvX2YoLLOO4anvbsPbVakIzt2ibFxSv/kbcgMTvclWPZNniQ7A45kvY3OZ844VChEv12wGKCzzCGgPWygdvTeRc/kzrCzYgTmuFZhF0xC6Y4ulPRJ7mtaraR5sXyTaMjPpx5jjWokf5WxCTmOJOL3ujommEyNBYZnHgZb+wQFc6+lEYetpBOZsQmDuW7iH+iXqR0on
+xmtLfDTP1vDSsXfF8J9FtY9DlM+Kni/uwvNzNyMw+zdIrS8U+7lv9ve626u/DjNDYZnvAm+JP5+HrWVObK104cn9v1I6k+arBIlHX8AmDH0JVX8WfRm1L8Z3928Qn7W1LBH/ezZL3xwRfbv9AQrLPEHENETnd2P3VeQ1nUJ+S5Ug7vxh/NuB1zA35RnMTVtzF/wn5qY+ix/m/FYUIqSflddcibzmCjR0X7nzQyl+MI0YCwrLPIl4C/3a7+jtQkdf993R242egT79jxPRfy7DMk85+jv3hMJ33XFBYZkZU8AyM6aBZWZMw6gy0z4bjz9kmRmDMrrM1kGWmZGGUWV2WAdYZkYaRpXZae1jmRlpGFXmBFsPy8xIw6gyO2w3WWZGGkaV2WnrYpkZaRhD5k6WmZGGMWRuZ5kZaRhVZoftGsvMSMOIMieKdeY6lpmRhpFlpoI31kKWmZEGrzLTXTkpkh6aJLPMjDSMLrNtG8vMSMOIMidHwhIX9jzLzEiDd5kjYXEthcUe+h8sMyMNo8qcaPunMWQeCXFo7XOhbyjDjMWoMqdGPupV5ogj2xSZORyDZWuFS7wBwENmr3fmuGB878BryGwoFhV0Uus/FdCrA9LcFAnSLx1Hhg4qo7pHZW9DsWCfSmbDSWQ2lgj2D4PqJxOfXC51k61y8PIpHGwqE+So5BLN5Tikcri5AoebKwVK7YlK5DdX4khLlUq14GhLNQpaNU7jWGsNChl5aKvBmk//qJQrG5fMBNU3U98PxzCGQtT9G+bqmDILoXX1z7xB/w3D+BJ9bb9xycwwMsAyM6bhDpkdtl6L09bnhX5LwjDo9KseOt49EgkqDtvQHTi9NIhhJsowmf8fTIVyONCVaaEAAAAASUVORK5CYII=</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="red_circle_1">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAIAAACzY+a1AAAC6UlEQVR4nO3d3W4UMRAFYS/i/V95ubBiRoSQ2R+6T3nqu4wEsV1pLytlltv9fh8i+9G9AL3KhHgmxDMh3s8/v3C7dSxDDzr8I9QpxDMh3qeLdPH9YqC/vcw5hXgmxDMhngnxTIhnQjwT4pkQz4R4JsQzIZ4J8UyIZ0I8E+KZEM+EeCbEMyGeCfFMiGdCPBPimRDPhHgmxPv6F/KhTj6ZtdHjBlskfOKBuuMfgeckJ3zXo5Dr72G2BCb8fw+xMluiEpY9gTy/ESQkJGHL4+OQkIQ3Fb2P/8d/+ED2FIYcX/Y4Bk9hSL8lbT0fUhNmnlfkqvIu0shj+i3vUg2bwvB+S9I6kxImncv3YlYbkzDmRB6QseaYhHpWRsKMH+dnBKw8IGHAKbyke/3dCbv3/x6tu+hOqJe1JtxjBKe+vfQl3Knf1LQjL1K8poT7jeDUsS+nEK8j4a4jOJXvzinEMyFeecK9b9Gpdo9OIZ4J8WoTXuEWnQp36hTimRDPhHiFCa/zQjhV7dcpxDMhngnxTIhnQjwT4pkQz4R4JsQzIZ4J8UyIV5gw6SMGKlTt1ynEMyGeCfFqE17n5bBwp04hngnxyhNe4S6t3aNTiGdCvI6Ee9+l5btzCvGaEu46iB37cgrx+hLuN4hNO2qdwp0q9u3FixSvO+Eeg9i6i+6Eg1+xe/0BCUf/KTwvYOUZCfWCmIQBP84Py1hzTMKRciJnxaw2KeEIOpdvJK0z77/dmqcT+9kKSfGmsClc8k5qjNBVpSYceeeVtp4PeRfpUcilmhpvCp7CpfcEs/uN9ClcWsYxPt4ESTiVhYTEm1AJp3W+b2+JKrcAEy7vaskst5ATLscGJ3PCsx1tkfBoozYnEd5U6J9MiGdCPBPimRDPhHgmxDMhngnxTIhnQjwT4pkQz4R4JsQzIZ4J8UyIZ0I8E+KZEM+EeCbEMyGeCfFM
+iPf1L+S3P1urc5xCPBPifbpIr/dkEJ1TiGdCPBPi/QKCqHhPRrwpIgAAAABJRU5ErkJggg==</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="triangle">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Lot_No_">
+          <DataField>Lot_No_</DataField>
+        </Field>
+        <Field Name="ExpiryDate">
+          <DataField>ExpiryDate</DataField>
+        </Field>
+        <Field Name="Serial_No_">
+          <DataField>Serial_No_</DataField>
+        </Field>
+        <Field Name="MRN_No_">
+          <DataField>MRN_No_</DataField>
+        </Field>
+        <Field Name="Posting_Date">
+          <DataField>Posting_Date</DataField>
+        </Field>
+        <Field Name="Item_No_">
+          <DataField>Item_No_</DataField>
+        </Field>
+        <Field Name="Vendor_Lot_No_">
+          <DataField>Vendor_Lot_No_</DataField>
+        </Field>
+        <Field Name="ProductCode">
+          <DataField>ProductCode</DataField>
+        </Field>
+        <Field Name="ProductName">
+          <DataField>ProductName</DataField>
+        </Field>
+        <Field Name="QuantityUOM">
+          <DataField>QuantityUOM</DataField>
+        </Field>
+        <Field Name="MfgDate">
+          <DataField>MfgDate</DataField>
+        </Field>
+        <Field Name="NetWt">
+          <DataField>NetWt</DataField>
+        </Field>
+        <Field Name="GrossWt">
+          <DataField>GrossWt</DataField>
+        </Field>
+        <Field Name="GrossWtFormat">
+          <DataField>GrossWtFormat</DataField>
+        </Field>
+        <Field Name="VendorNo">
+          <DataField>VendorNo</DataField>
+        </Field>
+        <Field Name="StorageCondition">
+          <DataField>StorageCondition</DataField>
+        </Field>
+        <Field Name="AllergenWarning">
+          <DataField>AllergenWarning</DataField>
+        </Field>
+        <Field Name="VegNonVegLogo">
+          <DataField>VegNonVegLogo</DataField>
+        </Field>
+        <Field Name="CompanyLogo">
+          <DataField>CompanyLogo</DataField>
+        </Field>
+        <Field Name="QRText">
+          <DataField>QRText</DataField>
+        </Field>
+        <Field Name="QRCode">
+          <DataField>QRCode</DataField>
+        </Field>
+        <Field Name="QRImage">
+          <DataField>QRImage</DataField>
+        </Field>
+        <Field Name="BatchandVendorLotNo">
+          <DataField>BatchandVendorLotNo</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

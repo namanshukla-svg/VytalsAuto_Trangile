@@ -13,15 +13,15 @@ pageextension 60000 "SSD Auto Location" extends "Location List"
                 RunPageLink = "Location Code"=field(Code);
                 ToolTip = 'Executes the ASRS Zone action.';
             }
-            action(Docks)
-            {
-                ApplicationArea = All;
-                Caption = 'Docks';
-                Image = InventoryCalculation;
-                RunObject = Page "SSD Docks";
-                RunPageLink = "Location Code"=field(Code);
-                ToolTip = 'Executes the Docks action.';
-            }
+            // action(Docks)
+            // {
+            //     ApplicationArea = All;
+            //     Caption = 'Docks';
+            //     Image = InventoryCalculation;
+            //     RunObject = Page "SSD Docks";
+            //     RunPageLink = "Location Code"=field(Code);
+            //     ToolTip = 'Executes the Docks action.';
+            // }
         }
     }
 }

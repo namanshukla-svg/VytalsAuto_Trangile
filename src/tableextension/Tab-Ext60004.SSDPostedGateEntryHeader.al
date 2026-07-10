@@ -22,7 +22,7 @@ tableextension 60004 "SSD Posted Gate Entry Header" extends "Posted Gate Entry H
             TableRelation = "SSD Vehicle";
             Editable = false;
         }
-        field(60030; "SSD Vehicle Status";Enum "SSD Vehicle Status")
+        field(60030; "SSD Vehicle Status"; Enum "SSD Vehicle Status")
         {
             Caption = 'Vehicle Status';
             DataClassification = CustomerContent;
@@ -58,7 +58,7 @@ tableextension 60004 "SSD Posted Gate Entry Header" extends "Posted Gate Entry H
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(60054; "SSD Material Type";Enum "SSD Item Sub Type")
+        field(60054; "SSD Material Type"; Enum "SSD Item Sub Type")
         {
             Caption = 'Material Type';
             DataClassification = CustomerContent;
@@ -85,38 +85,43 @@ tableextension 60004 "SSD Posted Gate Entry Header" extends "Posted Gate Entry H
     }
     procedure PostInwardGateOut(PostedGateEntryHeader: Record "Posted Gate Entry Header")
     var
-        SSDDockLines: Record "SSD Dock Lines";
+        // SSDDockLines: Record "SSD Dock Lines";
         WarehouseReceiptHeader: Record "Warehouse Receipt Header";
         DockActionErr: Label 'There is dock entry open for this Gate Entry. You cannot post Gate-Out';
         OpenReceiptMsg: Label 'Warehouse Receipt %1 is not fully posted. Do you wany to continue', Comment = '%1 = Warehouse Receipt No.';
         PostMsg: Label 'Gate out posted successfully';
     begin
         PostedGateEntryHeader.TestField("SSD Vehicle Status", "SSD Vehicle Status"::"Gate-In");
-        if WarehouseReceiptHeader.Get(PostedGateEntryHeader."SSD Planning No.")then if WarehouseReceiptHeader."SSD Material Type" = WarehouseReceiptHeader."SSD Material Type"::"Non-Bulk" then if not Confirm(StrSubstNo(OpenReceiptMsg, PostedGateEntryHeader."SSD Planning No."), false)then Error('Posting Stopped');
-        SSDDockLines.SetRange("Gate Entry No.", PostedGateEntryHeader."No.");
-        SSDDockLines.SetFilter(Status, '<>%1', SSDDockLines.Status::"Dock Out");
-        if not SSDDockLines.IsEmpty then Error(DockActionErr);
-        PostedGateEntryHeader."SSD Vehicle Status":=PostedGateEntryHeader."SSD Vehicle Status"::"Gate-Out";
-        PostedGateEntryHeader."SSD Gate Out DateTime":=CurrentDateTime;
+        if WarehouseReceiptHeader.Get(PostedGateEntryHeader."SSD Planning No.") then
+            // if WarehouseReceiptHeader."SSD Material Type" = WarehouseReceiptHeader."SSD Material Type"::"Non-Bulk" then
+            if not Confirm(StrSubstNo(OpenReceiptMsg, PostedGateEntryHeader."SSD Planning No."), false) then
+                Error('Posting Stopped');
+        // SSDDockLines.SetRange("Gate Entry No.", PostedGateEntryHeader."No.");
+        // SSDDockLines.SetFilter(Status, '<>%1', SSDDockLines.Status::"Dock Out");
+        // if not SSDDockLines.IsEmpty then
+        //Error(DockActionErr);
+        PostedGateEntryHeader."SSD Vehicle Status" := PostedGateEntryHeader."SSD Vehicle Status"::"Gate-Out";
+        PostedGateEntryHeader."SSD Gate Out DateTime" := CurrentDateTime;
         PostedGateEntryHeader.Modify();
         Message(PostMsg);
     end;
+
     procedure PostOutwardGateOut(PostedGateEntryHeader: Record "Posted Gate Entry Header")
     var
-        SSDDockLines: Record "SSD Dock Lines";
+      //  SSDDockLines: Record "SSD Dock Lines";
         DockActionErr: Label 'There is dock entry open for this Gate Entry. You cannot post Gate-Out';
         PostMsg: Label 'Gate out posted successfully';
     begin
-        SSDDockLines.SetRange("Gate Entry No.", PostedGateEntryHeader."No.");
-        SSDDockLines.SetFilter(Status, '%1|%2', SSDDockLines.Status::Completed, SSDDockLines.Status::"Dock Out");
-        if SSDDockLines.FindFirst()then begin
-            SSDDockLines.Status:=SSDDockLines.Status::"Dock Out";
-            SSDDockLines.Modify();
-        end
-        else
-            Error(DockActionErr);
-        PostedGateEntryHeader."SSD Vehicle Status":=PostedGateEntryHeader."SSD Vehicle Status"::"Gate-Out";
-        PostedGateEntryHeader."SSD Gate Out DateTime":=CurrentDateTime;
+        // SSDDockLines.SetRange("Gate Entry No.", PostedGateEntryHeader."No.");
+        // SSDDockLines.SetFilter(Status, '%1|%2', SSDDockLines.Status::Completed, SSDDockLines.Status::"Dock Out");
+        // if SSDDockLines.FindFirst() then begin
+        //     SSDDockLines.Status := SSDDockLines.Status::"Dock Out";
+        //     SSDDockLines.Modify();
+        // end
+        // else
+        //     Error(DockActionErr);
+        PostedGateEntryHeader."SSD Vehicle Status" := PostedGateEntryHeader."SSD Vehicle Status"::"Gate-Out";
+        PostedGateEntryHeader."SSD Gate Out DateTime" := CurrentDateTime;
         PostedGateEntryHeader.Modify();
         Message(PostMsg);
     end;

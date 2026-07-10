@@ -9,18 +9,18 @@ table 60020 "SSD Automation Cue"
         {
             Caption = 'Primary Key';
         }
-        field(10; "Dock Actions"; Integer)
-        {
-            Caption = 'Dock Actions';
-            FieldClass = FlowField;
-            CalcFormula = count("SSD Dock" where(Code=field("Location Filter")));
-        }
-        field(20; "Dock Lines"; Integer)
-        {
-            Caption = 'Dock Lines';
-            FieldClass = FlowField;
-            CalcFormula = count("SSD Dock Lines" where("Location Code"=field("Location Filter"), Status=filter(<"Dock Out")));
-        }
+        // field(10; "Dock Actions"; Integer)
+        // {
+        //     Caption = 'Dock Actions';
+        //     FieldClass = FlowField;
+        //     CalcFormula = count("SSD Dock" where(Code=field("Location Filter")));
+        // }
+        // field(20; "Dock Lines"; Integer)
+        // {
+        //     Caption = 'Dock Lines';
+        //     FieldClass = FlowField;
+        //     CalcFormula = count("SSD Dock Lines" where("Location Code"=field("Location Filter"), Status=filter(<"Dock Out")));
+        // }
         field(30; "Active Drivers"; Integer)
         {
             Caption = 'Drivers';
