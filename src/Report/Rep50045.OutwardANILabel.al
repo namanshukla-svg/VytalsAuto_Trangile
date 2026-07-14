@@ -21,7 +21,7 @@ report 60005 "Outward ANI Label"
             column(BatchNo; "Lot No.")
             {
             }
-            column(ContainerNo; "Lot Wise Package No.")
+            column(ContainerNo; "Package No.")
             {
             }
             column(QuantityAndUOM; QuantityAndUOM)
@@ -120,7 +120,7 @@ report 60005 "Outward ANI Label"
                 Char13 := 13;
                 Char10 := 10;
                 NewLine := FORMAT(Char13) + FORMAT(Char10);
-                QrText := 'Product Code: ' + ItemLedgerEntry."Item No." + NewLine + 'Product name: ' + ProductName + NewLine + 'Batch no.: ' + ItemLedgerEntry."Lot No." + NewLine + 'Container no.: ' + ItemLedgerEntry."Lot Wise Package No." + NewLine + 'Quantity & UoM: ' + QuantityAndUOM + NewLine + 'Mfg. Date: ' + MfgDate + NewLine + 'Expiry Date: ' + ExpiryDate + NewLine + 'Net Wt.: ' + Format(ItemLedgerEntry."Net Weight") + NewLine + 'Gross Wt.: ' + Format(ItemLedgerEntry."SSD Gross Weight") + NewLine + 'Storage condition: : ' + Item."Storage Condition";
+                QrText := 'Product Code: ' + ItemLedgerEntry."Item No." + NewLine + 'Product name: ' + ProductName + NewLine + 'Batch no.: ' + ItemLedgerEntry."Lot No." + NewLine + 'Packing ID: ' + ItemLedgerEntry."Package No." + NewLine + 'Batch Size: ' + QuantityAndUOM + NewLine + 'Mfg. Date: ' + MfgDate + NewLine + 'Expiry Date: ' + ExpiryDate + NewLine + 'Net Wt.: ' + Format(ItemLedgerEntry."Net Weight") + 'KG' + NewLine + 'Gross Wt.: ' + Format(ItemLedgerEntry."SSD Gross Weight") + 'KG' + NewLine + 'Storage condition: : ' + Item."Storage Condition";
                 QrInputTxt := CopyStr(QrText, 1, MaxStrLen(QrInputTxt));
                 QrCodeTxt := QrInputTxt;
                 GenerateReportQRCode(QrInputTxt, QrImageBase64Txt);

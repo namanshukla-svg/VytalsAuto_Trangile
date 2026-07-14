@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-06-02T05:23:31.3221159Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-07-14T04:54:17.0621014Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -45,36 +45,6 @@
                           <ReportItems>
                             <Rectangle Name="LabelBorder">
                               <ReportItems>
-                                <Textbox Name="PrePrintedText">
-                                  <CanGrow>true</CanGrow>
-                                  <KeepTogether>true</KeepTogether>
-                                  <Paragraphs>
-                                    <Paragraph>
-                                      <TextRuns>
-                                        <TextRun>
-                                          <Value>Pre-printed</Value>
-                                          <Style>
-                                            <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
-                                          </Style>
-                                        </TextRun>
-                                      </TextRuns>
-                                      <Style>
-                                        <TextAlign>Right</TextAlign>
-                                      </Style>
-                                    </Paragraph>
-                                  </Paragraphs>
-                                  <Top>0.00675cm</Top>
-                                  <Left>11.16825cm</Left>
-                                  <Height>0.4135cm</Height>
-                                  <Width>2.6cm</Width>
-                                  <Style>
-                                    <PaddingLeft>1pt</PaddingLeft>
-                                    <PaddingRight>1pt</PaddingRight>
-                                    <PaddingTop>1pt</PaddingTop>
-                                    <PaddingBottom>1pt</PaddingBottom>
-                                  </Style>
-                                </Textbox>
                                 <Textbox Name="ScanForDetails">
                                   <CanGrow>true</CanGrow>
                                   <KeepTogether>true</KeepTogether>
@@ -98,7 +68,6 @@
                                   <Left>12.11825cm</Left>
                                   <Height>0.25cm</Height>
                                   <Width>1.8cm</Width>
-                                  <ZIndex>1</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -127,7 +96,7 @@
                                   <Left>11.71825cm</Left>
                                   <Height>0.3cm</Height>
                                   <Width>2.45cm</Width>
-                                  <ZIndex>2</ZIndex>
+                                  <ZIndex>1</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -154,7 +123,7 @@
                                   <Left>0.2595cm</Left>
                                   <Height>0.4cm</Height>
                                   <Width>5.4cm</Width>
-                                  <ZIndex>3</ZIndex>
+                                  <ZIndex>2</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -202,7 +171,7 @@
                                   <Left>0.2595cm</Left>
                                   <Height>0.83833cm</Height>
                                   <Width>7.5cm</Width>
-                                  <ZIndex>4</ZIndex>
+                                  <ZIndex>3</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -236,7 +205,7 @@
                                   <Left>0.2595cm</Left>
                                   <Height>0.35cm</Height>
                                   <Width>7cm</Width>
-                                  <ZIndex>5</ZIndex>
+                                  <ZIndex>4</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -263,7 +232,7 @@
                                   <Left>0.2595cm</Left>
                                   <Height>0.35cm</Height>
                                   <Width>4cm</Width>
-                                  <ZIndex>6</ZIndex>
+                                  <ZIndex>5</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -293,7 +262,7 @@
                                   <Left>8.50386cm</Left>
                                   <Height>0.76717cm</Height>
                                   <Width>2.6635cm</Width>
-                                  <ZIndex>7</ZIndex>
+                                  <ZIndex>6</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -322,7 +291,7 @@
                                   <Left>4.43589cm</Left>
                                   <Height>0.4cm</Height>
                                   <Width>5.4cm</Width>
-                                  <ZIndex>8</ZIndex>
+                                  <ZIndex>7</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -333,11 +302,11 @@
                                   <Value>=Fields!CompanyLogo.Value</Value>
                                   <MIMEType>image/jpeg</MIMEType>
                                   <Sizing>FitProportional</Sizing>
-                                  <Top>0.50078cm</Top>
+                                  <Top>0.18328cm</Top>
                                   <Left>11.16825cm</Left>
-                                  <Height>0.58697cm</Height>
+                                  <Height>0.65047cm</Height>
                                   <Width>2.78975cm</Width>
-                                  <ZIndex>9</ZIndex>
+                                  <ZIndex>8</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -352,7 +321,7 @@
                                   <Left>11.98175cm</Left>
                                   <Height>1.5cm</Height>
                                   <Width>1.5cm</Width>
-                                  <ZIndex>10</ZIndex>
+                                  <ZIndex>9</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -363,11 +332,11 @@
                                   <Source>Embedded</Source>
                                   <Value>green</Value>
                                   <Sizing>Fit</Sizing>
-                                  <Top>1.19006cm</Top>
+                                  <Top>1.09481cm</Top>
                                   <Left>12.55cm</Left>
                                   <Height>0.89844cm</Height>
                                   <Width>1.09125cm</Width>
-                                  <ZIndex>11</ZIndex>
+                                  <ZIndex>10</ZIndex>
                                   <Visibility>
                                     <Hidden>=iif(Fields!VegNonVegLogo.Value="Non-Veg" Or Fields!VegNonVegLogo.Value=" ",True,False)</Hidden>
                                   </Visibility>
@@ -386,7 +355,7 @@
                                   <Left>11.6865cm</Left>
                                   <Height>2.24436cm</Height>
                                   <Width>2.42429cm</Width>
-                                  <ZIndex>12</ZIndex>
+                                  <ZIndex>11</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -401,7 +370,7 @@
                                   <Left>8.67625cm</Left>
                                   <Height>1.5cm</Height>
                                   <Width>2.346cm</Width>
-                                  <ZIndex>13</ZIndex>
+                                  <ZIndex>12</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -412,11 +381,11 @@
                                   <Source>Embedded</Source>
                                   <Value>triangle</Value>
                                   <Sizing>Fit</Sizing>
-                                  <Top>1.22533cm</Top>
+                                  <Top>1.13008cm</Top>
                                   <Left>12.4865cm</Left>
                                   <Height>0.90197cm</Height>
                                   <Width>1.13363cm</Width>
-                                  <ZIndex>14</ZIndex>
+                                  <ZIndex>13</ZIndex>
                                   <Visibility>
                                     <Hidden>=iif(Fields!VegNonVegLogo.Value = "Veg" Or Fields!VegNonVegLogo.Value = " ", True, False)</Hidden>
                                   </Visibility>
@@ -433,7 +402,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>="Quantity &amp; UoM: " &amp; Fields!QuantityAndUOM.Value</Value>
+                                          <Value>="Batch Size: " &amp; Fields!QuantityAndUOM.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
                                             <FontSize>9pt</FontSize>
@@ -447,7 +416,7 @@
                                   <Left>0.3175cm</Left>
                                   <Height>0.45cm</Height>
                                   <Width>10.00554cm</Width>
-                                  <ZIndex>15</ZIndex>
+                                  <ZIndex>14</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -474,7 +443,7 @@
                                   <Left>0.3175cm</Left>
                                   <Height>0.45cm</Height>
                                   <Width>8.5cm</Width>
-                                  <ZIndex>16</ZIndex>
+                                  <ZIndex>15</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -501,7 +470,7 @@
                                   <Left>0.3175cm</Left>
                                   <Height>0.45cm</Height>
                                   <Width>8.6cm</Width>
-                                  <ZIndex>17</ZIndex>
+                                  <ZIndex>16</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -528,7 +497,7 @@
                                   <Left>0.3175cm</Left>
                                   <Height>0.45cm</Height>
                                   <Width>10.6205cm</Width>
-                                  <ZIndex>18</ZIndex>
+                                  <ZIndex>17</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -555,7 +524,7 @@
                                   <Left>0.3175cm</Left>
                                   <Height>0.45cm</Height>
                                   <Width>3.8cm</Width>
-                                  <ZIndex>19</ZIndex>
+                                  <ZIndex>18</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -582,7 +551,7 @@
                                   <Left>4.4664cm</Left>
                                   <Height>0.45cm</Height>
                                   <Width>5.85735cm</Width>
-                                  <ZIndex>20</ZIndex>
+                                  <ZIndex>19</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -601,6 +570,13 @@
                                             <FontSize>9pt</FontSize>
                                           </Style>
                                         </TextRun>
+                                        <TextRun>
+                                          <Value> KG</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>9pt</FontSize>
+                                          </Style>
+                                        </TextRun>
                                       </TextRuns>
                                       <Style />
                                     </Paragraph>
@@ -609,7 +585,7 @@
                                   <Left>0.3175cm</Left>
                                   <Height>0.45cm</Height>
                                   <Width>3.8cm</Width>
-                                  <ZIndex>21</ZIndex>
+                                  <ZIndex>20</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -622,7 +598,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>="Container no.: " &amp; Fields!ContainerNo.Value</Value>
+                                          <Value>="Packing ID: " &amp; Fields!ContainerNo.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
                                             <FontSize>9pt</FontSize>
@@ -636,7 +612,7 @@
                                   <Left>0.31821cm</Left>
                                   <Height>0.45cm</Height>
                                   <Width>10.00554cm</Width>
-                                  <ZIndex>22</ZIndex>
+                                  <ZIndex>21</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -655,6 +631,13 @@
                                             <FontSize>9pt</FontSize>
                                           </Style>
                                         </TextRun>
+                                        <TextRun>
+                                          <Value> KG</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>9pt</FontSize>
+                                          </Style>
+                                        </TextRun>
                                       </TextRuns>
                                       <Style />
                                     </Paragraph>
@@ -663,7 +646,7 @@
                                   <Left>4.4514cm</Left>
                                   <Height>0.45cm</Height>
                                   <Width>4.7cm</Width>
-                                  <ZIndex>23</ZIndex>
+                                  <ZIndex>22</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -699,7 +682,7 @@
                                   <Left>0.30435cm</Left>
                                   <Height>0.674cm</Height>
                                   <Width>13.05758cm</Width>
-                                  <ZIndex>24</ZIndex>
+                                  <ZIndex>23</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
