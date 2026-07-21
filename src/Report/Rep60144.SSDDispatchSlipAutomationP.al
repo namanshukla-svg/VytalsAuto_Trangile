@@ -138,8 +138,9 @@ report 60144 "SSD Dispatch Slip Automation P"
                     end;
                     item.reset();
                     item.SetRange("No.", "Warehouse Shipment Line"."Item No.");
-                    if item.FindFirst() then pacKTaype := format(item."SSD Packing");
-                    ItemGrosswt := item."Gross Weight";
+                    if item.FindFirst() then
+                        pacKTaype := format(item."SSD Packing");
+                    // ItemGrosswt := item."Gross Weight";
                     //  if SSDTempDISPPACK.FindSet() then SSDTempDISPPACK.DeleteAll();
                     // if SSDtemporaryDisppack.findset() then SSDtemporaryDisppack.deleteall();
                     ReservationEntry.Reset();
@@ -224,9 +225,10 @@ report 60144 "SSD Dispatch Slip Automation P"
             column(Lot_No; "Lot No")
             {
             }
-            column(Gross_Weight; ABS(ItemGrosswt * Quantity2))
+            column(Gross_Weight; ItemGrosswt)
             {
             }
+
             column(pacKTaype; pacKTaype)
             {
             }
@@ -255,6 +257,7 @@ report 60144 "SSD Dispatch Slip Automation P"
 
             trigger OnAfterGetRecord()
             var
+                ILE: Record "Item Ledger Entry";
             begin
                 Srno := Srno + 1;
                 Quantity2 := "SSD Temp Dispatch Slip".Quantity * "SSD Temp Dispatch Slip"."Package Count";
@@ -262,9 +265,14 @@ report 60144 "SSD Dispatch Slip Automation P"
                 item.reset();
                 item.SetRange("No.", "Item No.");
                 if item.FindFirst() then pacKTaype := format(item."SSD Packing");
-                ItemGrosswt := item."Gross Weight";
+                // ItemGrosswt := item."Gross Weight";
                 Desc := item.Description + ' ' + item."Description 2";
                 Unit_of_Measure_Code := item."Base Unit of Measure";
+
+                ILE.Reset();
+                ILE.SetRange("Document No.", "Warehouse Shipment Line"."Posted Source No.");
+                if ILE.FindFirst() then
+                    itemgrosswt := ILE."SSD Gross Weight";
             end;
         }
     }

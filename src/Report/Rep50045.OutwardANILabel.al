@@ -107,7 +107,8 @@ report 60005 "Outward ANI Label"
                     QuantityAndUOM := Format(ItemLedgerEntry.Quantity, 0, '<Precision,2:2><Standard Format,0>');
                     if ItemLedgerEntry."Unit of Measure Code" <> '' then QuantityAndUOM := QuantityAndUOM + ' ' + ItemLedgerEntry."Unit of Measure Code";
                 end;
-                if ItemLedgerEntry."Posting Date" <> 0D then MfgDate := Format(ItemLedgerEntry."Posting Date", 0, '<Day,2>-<Month,2>-<Year4>');
+                if ItemLedgerEntry."Date of Manufacturing" <> 0D then
+                    MfgDate := Format(ItemLedgerEntry."Date of Manufacturing", 0, '<Day,2>-<Month,2>-<Year4>');
                 if ItemLedgerEntry."Expiration Date" <> 0D then ExpiryDate := Format(ItemLedgerEntry."Expiration Date", 0, '<Day,2>-<Month,2>-<Year4>');
                 if Item.Get(ItemLedgerEntry."Item No.") then begin
                     ProductName := Item.Description;

@@ -6,7 +6,7 @@
             "request": "launch",
             "type": "al",
             "environmentType": "Sandbox",
-            "environmentName": "Sandbox_17062026",
+            "environmentName": "Sandbox_20072026",
             "tenant": "e5f8932c-ad61-49a3-8f4e-2d8640ed4c6c",
             "breakOnError": "All",
             "launchBrowser": true,
