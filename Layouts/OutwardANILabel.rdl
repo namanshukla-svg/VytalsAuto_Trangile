@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-07-14T04:54:17.0621014Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-07-29T06:18:59.9529097Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -64,7 +64,7 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>4.541cm</Top>
+                                  <Top>4.12825cm</Top>
                                   <Left>12.11825cm</Left>
                                   <Height>0.25cm</Height>
                                   <Width>1.8cm</Width>
@@ -83,7 +83,7 @@
                                           <Value>All label info</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -92,7 +92,7 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>4.791cm</Top>
+                                  <Top>4.37825cm</Top>
                                   <Left>11.71825cm</Left>
                                   <Height>0.3cm</Height>
                                   <Width>2.45cm</Width>
@@ -112,7 +112,7 @@
                                           <Value>Manufactured &amp; Packed by:</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -139,28 +139,28 @@
                                           <Value>=Fields!CompanyName.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                         <TextRun>
                                           <Value>, </Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                         <TextRun>
                                           <Value>=Fields!CompanyAddress1.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                         <TextRun>
                                           <Value>=Fields!CompanyAddress3.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -187,14 +187,14 @@
                                           <Value>Contact e-mail: </Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                         <TextRun>
                                           <Value>=Fields!CompanyEmail.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -221,7 +221,7 @@
                                           <Value>=Fields!CompanyHomePage.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -278,7 +278,7 @@
                                           <Value>Not for Retail Sale</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -302,7 +302,6 @@
                                   <Value>=Fields!CompanyLogo.Value</Value>
                                   <MIMEType>image/jpeg</MIMEType>
                                   <Sizing>FitProportional</Sizing>
-                                  <Top>0.18328cm</Top>
                                   <Left>11.16825cm</Left>
                                   <Height>0.65047cm</Height>
                                   <Width>2.78975cm</Width>
@@ -332,7 +331,7 @@
                                   <Source>Embedded</Source>
                                   <Value>green</Value>
                                   <Sizing>Fit</Sizing>
-                                  <Top>1.09481cm</Top>
+                                  <Top>0.77731cm</Top>
                                   <Left>12.55cm</Left>
                                   <Height>0.89844cm</Height>
                                   <Width>1.09125cm</Width>
@@ -351,8 +350,8 @@
                                   <Value>=System.Convert.FromBase64String(Fields!QRImage.Value)</Value>
                                   <MIMEType>image/png</MIMEType>
                                   <Sizing>Fit</Sizing>
-                                  <Top>2.22608cm</Top>
-                                  <Left>11.6865cm</Left>
+                                  <Top>1.84508cm</Top>
+                                  <Left>11.623cm</Left>
                                   <Height>2.24436cm</Height>
                                   <Width>2.42429cm</Width>
                                   <ZIndex>11</ZIndex>
@@ -381,7 +380,7 @@
                                   <Source>Embedded</Source>
                                   <Value>triangle</Value>
                                   <Sizing>Fit</Sizing>
-                                  <Top>1.13008cm</Top>
+                                  <Top>0.81258cm</Top>
                                   <Left>12.4865cm</Left>
                                   <Height>0.90197cm</Height>
                                   <Width>1.13363cm</Width>
@@ -395,33 +394,6 @@
                                     </Border>
                                   </Style>
                                 </Image>
-                                <Textbox Name="QuantityAndUOM">
-                                  <CanGrow>true</CanGrow>
-                                  <KeepTogether>true</KeepTogether>
-                                  <Paragraphs>
-                                    <Paragraph>
-                                      <TextRuns>
-                                        <TextRun>
-                                          <Value>="Batch Size: " &amp; Fields!QuantityAndUOM.Value</Value>
-                                          <Style>
-                                            <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
-                                          </Style>
-                                        </TextRun>
-                                      </TextRuns>
-                                      <Style />
-                                    </Paragraph>
-                                  </Paragraphs>
-                                  <Top>2.62161cm</Top>
-                                  <Left>0.3175cm</Left>
-                                  <Height>0.45cm</Height>
-                                  <Width>10.00554cm</Width>
-                                  <ZIndex>14</ZIndex>
-                                  <Style>
-                                    <PaddingLeft>1pt</PaddingLeft>
-                                    <PaddingRight>1pt</PaddingRight>
-                                  </Style>
-                                </Textbox>
                                 <Textbox Name="ProductCode">
                                   <CanGrow>true</CanGrow>
                                   <KeepTogether>true</KeepTogether>
@@ -432,7 +404,7 @@
                                           <Value>="Product Code: " &amp; Fields!ProductCode.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -440,10 +412,10 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <Top>0.002cm</Top>
-                                  <Left>0.3175cm</Left>
+                                  <Left>0.2595cm</Left>
                                   <Height>0.45cm</Height>
-                                  <Width>8.5cm</Width>
-                                  <ZIndex>15</ZIndex>
+                                  <Width>8.558cm</Width>
+                                  <ZIndex>14</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -459,7 +431,7 @@
                                           <Value>="Product name: " &amp; Fields!ProductName.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -467,10 +439,10 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <Top>0.67425cm</Top>
-                                  <Left>0.3175cm</Left>
+                                  <Left>0.2595cm</Left>
                                   <Height>0.45cm</Height>
-                                  <Width>8.6cm</Width>
-                                  <ZIndex>16</ZIndex>
+                                  <Width>10.6785cm</Width>
+                                  <ZIndex>15</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -486,7 +458,7 @@
                                           <Value>="Batch no.: " &amp; Fields!BatchNo.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -494,10 +466,10 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <Top>1.31475cm</Top>
-                                  <Left>0.3175cm</Left>
+                                  <Left>0.2595cm</Left>
                                   <Height>0.45cm</Height>
-                                  <Width>10.6205cm</Width>
-                                  <ZIndex>17</ZIndex>
+                                  <Width>10.6785cm</Width>
+                                  <ZIndex>16</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -513,7 +485,7 @@
                                           <Value>="Mfg. Date: " &amp; Fields!MfgDate.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -524,7 +496,7 @@
                                   <Left>0.3175cm</Left>
                                   <Height>0.45cm</Height>
                                   <Width>3.8cm</Width>
-                                  <ZIndex>18</ZIndex>
+                                  <ZIndex>17</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -540,7 +512,7 @@
                                           <Value>="Expiry Date: " &amp; Fields!ExpiryDate.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -548,10 +520,10 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <Top>3.268cm</Top>
-                                  <Left>4.4664cm</Left>
+                                  <Left>4.4084cm</Left>
                                   <Height>0.45cm</Height>
-                                  <Width>5.85735cm</Width>
-                                  <ZIndex>19</ZIndex>
+                                  <Width>5.91535cm</Width>
+                                  <ZIndex>18</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -567,14 +539,14 @@
                                           <Value>="Net Wt.: " &amp; Fields!NetWeight.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                         <TextRun>
                                           <Value> KG</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -585,7 +557,7 @@
                                   <Left>0.3175cm</Left>
                                   <Height>0.45cm</Height>
                                   <Width>3.8cm</Width>
-                                  <ZIndex>20</ZIndex>
+                                  <ZIndex>19</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -601,18 +573,18 @@
                                           <Value>="Packing ID: " &amp; Fields!ContainerNo.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
                                       <Style />
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>1.97525cm</Top>
-                                  <Left>0.31821cm</Left>
+                                  <Top>2.642cm</Top>
+                                  <Left>0.29758cm</Left>
                                   <Height>0.45cm</Height>
-                                  <Width>10.00554cm</Width>
-                                  <ZIndex>21</ZIndex>
+                                  <Width>3.81992cm</Width>
+                                  <ZIndex>20</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -628,14 +600,14 @@
                                           <Value>="Gross Wt.: " &amp; Fields!GrossWeight.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                         <TextRun>
                                           <Value> KG</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -643,10 +615,10 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <Top>3.892cm</Top>
-                                  <Left>4.4514cm</Left>
+                                  <Left>4.3934cm</Left>
                                   <Height>0.45cm</Height>
-                                  <Width>4.7cm</Width>
-                                  <ZIndex>22</ZIndex>
+                                  <Width>4.758cm</Width>
+                                  <ZIndex>21</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -662,14 +634,14 @@
                                           <Value>Storage Condition: </Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                         <TextRun>
                                           <Value>=Fields!StorageCondition.Value</Value>
                                           <Style>
                                             <FontFamily>Segoe UI</FontFamily>
-                                            <FontSize>9pt</FontSize>
+                                            <FontSize>8pt</FontSize>
                                           </Style>
                                         </TextRun>
                                       </TextRuns>
@@ -678,11 +650,107 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>5.22027cm</Top>
-                                  <Left>0.30435cm</Left>
-                                  <Height>0.674cm</Height>
-                                  <Width>13.05758cm</Width>
+                                  <Top>4.74402cm</Top>
+                                  <Left>0.29126cm</Left>
+                                  <Height>0.64225cm</Height>
+                                  <Width>13.81953cm</Width>
+                                  <ZIndex>22</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="StorageCondition2">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>Allergen Warning: </Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>8pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                        <TextRun>
+                                          <Value>=Fields!AllergenAndWarning.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>8pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style>
+                                        <TextAlign>Left</TextAlign>
+                                      </Style>
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>5.52033cm</Top>
+                                  <Left>0.29126cm</Left>
+                                  <Height>0.64306cm</Height>
+                                  <Width>13.81953cm</Width>
                                   <ZIndex>23</ZIndex>
+                                  <Visibility>
+                                    <Hidden>=IIF(Fields!AllergenAndWarning.Value="",true,false)</Hidden>
+                                  </Visibility>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="QuantityAndUOM">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>="Batch Size: " &amp; Fields!QuantityAndUOM.Value</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>8pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>2.0105cm</Top>
+                                  <Left>0.2595cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>10.08417cm</Width>
+                                  <ZIndex>24</ZIndex>
+                                  <Style>
+                                    <PaddingLeft>1pt</PaddingLeft>
+                                    <PaddingRight>1pt</PaddingRight>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="ContainerNo2">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>="Container No. " &amp; RowNumber("DataSet_Result") &amp; "/" &amp; CountRows("DataSet_Result")</Value>
+                                          <Style>
+                                            <FontFamily>Segoe UI</FontFamily>
+                                            <FontSize>8pt</FontSize>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style />
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>2.642cm</Top>
+                                  <Left>4.42022cm</Left>
+                                  <Height>0.45cm</Height>
+                                  <Width>4.88775cm</Width>
+                                  <ZIndex>25</ZIndex>
                                   <Style>
                                     <PaddingLeft>1pt</PaddingLeft>
                                     <PaddingRight>1pt</PaddingRight>
@@ -1534,6 +1602,9 @@ gAAAgMG3kQPIR+AAAIBmGEAAAEAzDCAAAKAZBhAAANAMAwgAAGiGAQQAADTDAAIAAJphAAEAAM0wgAAA
         <Field Name="ProductName">
           <DataField>ProductName</DataField>
         </Field>
+        <Field Name="AllergenAndWarning">
+          <DataField>AllergenAndWarning</DataField>
+        </Field>
         <Field Name="BatchNo">
           <DataField>BatchNo</DataField>
         </Field>
@@ -1602,6 +1673,9 @@ gAAAgMG3kQPIR+AAAIBmGEAAAEAzDCAAAKAZBhAAANAMAwgAAGiGAQQAADTDAAIAAJphAAEAAM0wgAAA
         </Field>
         <Field Name="Package_No_">
           <DataField>Package_No_</DataField>
+        </Field>
+        <Field Name="No__of_Container">
+          <DataField>No__of_Container</DataField>
         </Field>
       </Fields>
       <Query>

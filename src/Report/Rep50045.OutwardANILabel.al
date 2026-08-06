@@ -18,6 +18,9 @@ report 60005 "Outward ANI Label"
             column(ProductName; ProductName)
             {
             }
+            column(AllergenAndWarning; Item."Allergen Warning")
+            {
+            }
             column(BatchNo; "Lot No.")
             {
             }
@@ -82,15 +85,21 @@ report 60005 "Outward ANI Label"
             column(Lot_No_; "Lot No.")
             {
             }
-            column(Package_No_; "Lot Wise Package No.")
+            column(Package_No_; "Package No.")
             {
             }
+            column(No__of_Container; "No. of Container")
+            {
+            }
+
             trigger OnAfterGetRecord()
             var
                 BarcodeString: Text;
                 Char13: Char;
                 Char10: Char;
                 NewLineTxt: Text;
+                ILE: Record "Item Ledger Entry";
+                ILE2: Record "Item Ledger Entry";
             begin
                 Clear(ProductName);
                 Clear(QuantityAndUOM);
@@ -103,15 +112,26 @@ report 60005 "Outward ANI Label"
                 Clear(QrImageBase64Txt);
                 clear(Veg_Non);
                 Clear(StorageConditionValue);
+                ILE.Reset();
+                ILE.SetRange("Document No.", ItemLedgerEntry."Document No.");
+                ILE.SetRange("Item No.", ItemLedgerEntry."Item No.");
+                ILE.SetRange("Lot No.", ItemLedgerEntry."Lot No.");
+                ILE.calcsums(Quantity);
+
+
                 if ItemLedgerEntry.Quantity <> 0 then begin
-                    QuantityAndUOM := Format(ItemLedgerEntry.Quantity, 0, '<Precision,2:2><Standard Format,0>');
-                    if ItemLedgerEntry."Unit of Measure Code" <> '' then QuantityAndUOM := QuantityAndUOM + ' ' + ItemLedgerEntry."Unit of Measure Code";
+                    QuantityAndUOM := Format(ILE.Quantity, 0, '<Precision,2:2><Standard Format,0>');
+                    if ItemLedgerEntry."Unit of Measure Code" <> ''
+                    then
+                        QuantityAndUOM := QuantityAndUOM + ' ' + ItemLedgerEntry."Unit of Measure Code";
                 end;
                 if ItemLedgerEntry."Date of Manufacturing" <> 0D then
                     MfgDate := Format(ItemLedgerEntry."Date of Manufacturing", 0, '<Day,2>-<Month,2>-<Year4>');
                 if ItemLedgerEntry."Expiration Date" <> 0D then ExpiryDate := Format(ItemLedgerEntry."Expiration Date", 0, '<Day,2>-<Month,2>-<Year4>');
+
                 if Item.Get(ItemLedgerEntry."Item No.") then begin
                     ProductName := Item.Description;
+
                     ProductName := ProductName + '' + Item."Description 2";
                     // if Item."Net Weight" <> 0 then
                     //     NetWeight := Format(Item."Net Weight", 0, '<Precision,2:2><Standard Format,0>');
@@ -125,6 +145,15 @@ report 60005 "Outward ANI Label"
                 QrInputTxt := CopyStr(QrText, 1, MaxStrLen(QrInputTxt));
                 QrCodeTxt := QrInputTxt;
                 GenerateReportQRCode(QrInputTxt, QrImageBase64Txt);
+
+
+                // ILE2.Reset();
+                // ILE2.SetRange("Document No.", ItemLedgerEntry."Document No.");
+                // ILE2.SetRange("Item No.", ItemLedgerEntry."Item No.");
+                // ILE2.SetRange("Lot No.", ItemLedgerEntry."Lot No.");
+                // ILE2.SetRange("Package No.", ItemLedgerEntry."Package No.");
+                // ILEEntryCount := ILE2.count;
+
             end;
 
             trigger OnPreDataItem()
@@ -204,6 +233,7 @@ report 60005 "Outward ANI Label"
     end;
 
     var
+        ILEEntryCount: Integer;
         CompanyInformation: Record "Company Information";
         BarcodeSymbology2D: Enum "Barcode Symbology 2D";
         StorageCondition: Text[150];
