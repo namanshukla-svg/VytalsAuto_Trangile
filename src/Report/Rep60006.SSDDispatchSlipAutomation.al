@@ -1,4 +1,4 @@
-report 60006 "SSD Dispatch Slip Automation"
+report 60008 "SSD Dispatch Slip Automation"
 {
     ApplicationArea = All;
     Caption = 'Dispatch Slip Automation';

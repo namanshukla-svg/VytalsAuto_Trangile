@@ -22,7 +22,7 @@ codeunit 60008 "SSD Auttomation Subscribers"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Over-Receipt Mgt.", 'OnIsOverReceiptAllowed', '', false, false)]
     local procedure SSDOnIsOverReceiptAllowed(var OverReceiptAllowed: Boolean)
     begin
-        OverReceiptAllowed := false;
+        // OverReceiptAllowed := false;// vts
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Whse.-Purch. Release", 'OnBeforeCreateWhseRequest', '', false, false)]
