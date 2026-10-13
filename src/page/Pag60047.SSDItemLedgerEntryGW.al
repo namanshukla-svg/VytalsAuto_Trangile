@@ -7,7 +7,7 @@ page 60047 "SSD Item Ledger Entry GW"
     UsageCategory = History;
     DeleteAllowed = false;
     InsertAllowed = false;
-    Permissions = tabledata "Item Ledger Entry"=rm;
+    Permissions = tabledata "Item Ledger Entry" = rm;
 
     layout
     {
@@ -47,6 +47,11 @@ page 60047 "SSD Item Ledger Entry GW"
                 {
                     ToolTip = 'Specifies the value of the Gross Weight field.', Comment = '%';
                     Editable = true;
+                }
+                field("Expiration Date"; Rec."Expiration Date")
+                {
+                    applicationarea = All;
+
                 }
             }
         }
